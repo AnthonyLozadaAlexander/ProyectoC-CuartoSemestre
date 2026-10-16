@@ -13,10 +13,5 @@ namespace Sistema_De_Facturacion_Ventas {
         public FormLogin() {
             InitializeComponent();
         }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
