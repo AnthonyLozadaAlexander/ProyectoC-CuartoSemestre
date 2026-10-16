@@ -26,6 +26,16 @@
             this.lblTitulo = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.grpProducto = new System.Windows.Forms.GroupBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
@@ -33,16 +43,6 @@
             this.button1 = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.dvgProductos = new System.Windows.Forms.DataGridView();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
             this.grpProducto.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dvgProductos)).BeginInit();
             this.SuspendLayout();
@@ -93,6 +93,92 @@
             this.grpProducto.TabIndex = 2;
             this.grpProducto.TabStop = false;
             this.grpProducto.Text = "DATOS DEL PRODUCTO";
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(437, 148);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(100, 28);
+            this.textBox4.TabIndex = 16;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(152, 148);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(134, 28);
+            this.textBox3.TabIndex = 15;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(152, 101);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(134, 28);
+            this.textBox2.TabIndex = 14;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(152, 55);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(134, 28);
+            this.textBox1.TabIndex = 13;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(495, 51);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(161, 32);
+            this.comboBox1.TabIndex = 12;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Cascadia Code SemiBold", 13.74545F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(357, 51);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(132, 28);
+            this.label7.TabIndex = 11;
+            this.label7.Text = "Categoria:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Cascadia Code SemiBold", 13.74545F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(357, 148);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(84, 28);
+            this.label6.TabIndex = 10;
+            this.label6.Text = "Stock:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Cascadia Code SemiBold", 13.74545F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(60, 51);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(96, 28);
+            this.label5.TabIndex = 9;
+            this.label5.Text = "Codigo:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Cascadia Code SemiBold", 13.74545F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(60, 148);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(96, 28);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "Precio:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Cascadia Code SemiBold", 13.74545F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(60, 101);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(96, 28);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "Nombre:";
             // 
             // txtBuscar
             // 
@@ -156,92 +242,6 @@
             this.dvgProductos.RowHeadersWidth = 47;
             this.dvgProductos.Size = new System.Drawing.Size(685, 200);
             this.dvgProductos.TabIndex = 0;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Cascadia Code SemiBold", 13.74545F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(60, 101);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(96, 28);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "Nombre:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Cascadia Code SemiBold", 13.74545F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(60, 148);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(96, 28);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Precio:";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Cascadia Code SemiBold", 13.74545F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(60, 51);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(96, 28);
-            this.label5.TabIndex = 9;
-            this.label5.Text = "Codigo:";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Cascadia Code SemiBold", 13.74545F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(357, 148);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(84, 28);
-            this.label6.TabIndex = 10;
-            this.label6.Text = "Stock:";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Cascadia Code SemiBold", 13.74545F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(357, 51);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(132, 28);
-            this.label7.TabIndex = 11;
-            this.label7.Text = "Categoria:";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(495, 51);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(161, 32);
-            this.comboBox1.TabIndex = 12;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(152, 55);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(134, 28);
-            this.textBox1.TabIndex = 13;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(152, 101);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(134, 28);
-            this.textBox2.TabIndex = 14;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(152, 148);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(134, 28);
-            this.textBox3.TabIndex = 15;
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(437, 148);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 28);
-            this.textBox4.TabIndex = 16;
             // 
             // FormProductos
             // 
