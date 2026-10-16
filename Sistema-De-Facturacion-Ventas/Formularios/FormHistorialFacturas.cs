@@ -13,5 +13,10 @@ namespace Sistema_De_Facturacion_Ventas.Formularios {
         public FormHistorialFacturas() {
             InitializeComponent();
         }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }
