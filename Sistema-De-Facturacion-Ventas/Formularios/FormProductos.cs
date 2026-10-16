@@ -12,6 +12,7 @@ namespace Sistema_De_Facturacion_Ventas.Formularios {
     public partial class FormProductos : Form {
         public FormProductos() {
             InitializeComponent();
+            CenterToScreen();
         }
     }
 }
