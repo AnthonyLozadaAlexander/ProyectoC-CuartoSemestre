@@ -21,7 +21,8 @@ namespace Sistema_De_Facturacion_Ventas.Formularios {
         }
 
         private void configurarTabla() {
-            dvgProductos.AutoSize = DataGridViewAutoSizeColumnsMode.Fill;
+            // Configurar el DataGridView para que se ajuste automáticamente al tamaño de las columnas
+            dvgProductos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
 
         private void cargarProductosTabla() {
@@ -60,6 +61,12 @@ namespace Sistema_De_Facturacion_Ventas.Formularios {
             }
 
             String codigo = txtCodigo.Text;
+
+            if (verificarDuplicadoCodigo(codigo)) {
+                MessageBox.Show("El código del producto ya existe.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             String nombre = txtNombre.Text;
             Decimal precio = Convert.ToDecimal(txtPrecio.Text);
             int stock = Convert.ToInt32(txtStock.Text);
