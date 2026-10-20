@@ -13,5 +13,9 @@ namespace Sistema_De_Facturacion_Ventas.Formularios {
         public FormMenuPrincipal() {
             InitializeComponent();
         }
+
+        private void FormMenuPrincipal_Load(object sender, EventArgs e) {
+
+        }
     }
 }
