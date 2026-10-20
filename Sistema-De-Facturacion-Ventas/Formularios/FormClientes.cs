@@ -14,13 +14,12 @@ namespace Sistema_De_Facturacion_Ventas.Formularios {
             InitializeComponent();
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void FormClientes_Load(object sender, EventArgs e)
         {
 
         }
 
-        private void FormClientes_Load(object sender, EventArgs e)
-        {
+        private void label9_Click(object sender, EventArgs e) {
 
         }
     }
