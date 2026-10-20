@@ -67,10 +67,19 @@ namespace Sistema_De_Facturacion_Ventas.Formularios {
                 return;
             }
 
-            String nombre = txtNombre.Text;
-            Decimal precio = Convert.ToDecimal(txtPrecio.Text);
-            int stock = Convert.ToInt32(txtStock.Text);
 
+            if(!Decimal.TryParse(txtPrecio.Text, out Decimal precio)){
+                MessageBox.Show("El precio no es válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if(!Int32.TryParse(txtStock.Text,  out Int32 stock)) {
+                MessageBox.Show("El stock no es válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            String nombre = txtNombre.Text;
+           
             categoriaSeleccionada = cboCategoria.SelectedIndex;
             if (categoriaSeleccionada == -1) {
                 MessageBox.Show("Debe seleccionar una categoria.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -82,8 +91,54 @@ namespace Sistema_De_Facturacion_Ventas.Formularios {
             Producto p = new Producto(codigo, nombre, precio, stock, idCategoria);
             RepositorioDatos.Productos.Add(p);
             agregarProductoTabla(p);
+            limpiarCampos();
         }
 
-        
+        private void limpiarCampos() {
+            txtCodigo.Clear();
+            txtNombre.Clear();
+            txtBuscar.Clear();
+            txtPrecio.Clear();
+            txtStock.Clear();
+            cboCategoria.SelectedIndex = -1;
+        }
+
+        private void btnActualizar_Click(object sender, EventArgs e) {
+
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e) {
+
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e) {
+            limpiarCampos();
+        }
+
+        private void txtBuscar_TextChanged(object sender, EventArgs e) {
+            List<Producto> busqueda = null;
+            string texto = txtBuscar.Text.Trim();
+
+            if (!String.IsNullOrWhiteSpace(texto)) {
+                // filtrar los productos por código o nombre que contengan el texto ingresado (ignorando mayúsculas y minúsculas)
+                busqueda = RepositorioDatos.Productos.Where(p => p.Codigo.IndexOf(texto, StringComparison.OrdinalIgnoreCase) >= 0 
+                || p.Nombre.IndexOf(texto, StringComparison.OrdinalIgnoreCase) >= 0).ToList();
+            }
+            else {
+                // Si el campo de búsqueda está vacío, mostrar todos los productos
+                busqueda = RepositorioDatos.Productos;
+            }
+
+            cargarProductos(busqueda);
+
+        }
+
+        // Cargar los productos en el DataGridView
+        private void cargarProductos(List<Producto> p) {
+            dvgProductos.Rows.Clear();
+            foreach(Producto pr in p) {
+                agregarProductoTabla(pr);
+            }
+        }
     }
 }

@@ -191,6 +191,7 @@
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(110, 28);
             this.txtBuscar.TabIndex = 6;
+            this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
             // 
             // label2
             // 
@@ -210,6 +211,7 @@
             this.btnLimpiar.TabIndex = 4;
             this.btnLimpiar.Text = "[ Limpiar ]";
             this.btnLimpiar.UseVisualStyleBackColor = true;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
             // btnEliminar
             // 
@@ -219,6 +221,7 @@
             this.btnEliminar.TabIndex = 3;
             this.btnEliminar.Text = "[ Eliminar ]";
             this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnActualizar
             // 
@@ -228,6 +231,7 @@
             this.btnActualizar.TabIndex = 2;
             this.btnActualizar.Text = "[ Actualizar ]";
             this.btnActualizar.UseVisualStyleBackColor = true;
+            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
             // btnGuardar
             // 
@@ -249,7 +253,7 @@
             this.Precio,
             this.Categoria,
             this.Stock});
-            this.dvgProductos.Location = new System.Drawing.Point(75, 313);
+            this.dvgProductos.Location = new System.Drawing.Point(65, 313);
             this.dvgProductos.Name = "dvgProductos";
             this.dvgProductos.RowHeadersWidth = 47;
             this.dvgProductos.Size = new System.Drawing.Size(624, 224);
