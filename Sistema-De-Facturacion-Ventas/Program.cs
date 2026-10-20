@@ -15,14 +15,15 @@ namespace Sistema_De_Facturacion_Ventas {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            // Muestra el formulario de inicio de sesión antes de mostrar el formulario principal
+            // Muestra el formulario de inicio de sesión antes de mostrar el formulario principal.
             using (FormLogin login = new FormLogin()) {
-                if(login.DialogResult != DialogResult.OK) { // si el usuario no inicia sesión correctamente, se cierra la aplicación
-                    return;
+                // ShowDialog bloquea aquí hasta que el login devuelva OK o Cancel.
+                if (login.ShowDialog() != DialogResult.OK) {
+                    return; // El usuario canceló o cerró: no se abre el menú.
                 }
             }
-            
-            Application.Run(new FormMenuPrincipal()); // Inicia la aplicación con el formulario principal después de que el usuario haya iniciado sesión correctamente
+
+            Application.Run(new FormMenuPrincipal()); // Solo se llega aquí si el login devolvió OK.
         }
     }
 }
