@@ -57,7 +57,7 @@ namespace Sistema_De_Facturacion_Ventas.Formularios {
             f.FechaEmision >= desde && f.FechaEmision <= hasta &&
             (texto == ""
             || f.NumeroFactura.IndexOf(texto, StringComparison.OrdinalIgnoreCase) >= 0
-            || (f.ClienteAsociado != null && f.ClienteAsociado.CedulaRuc.Contains(texto))) &&
+            || (f.ClienteAsociado != null && f.ClienteAsociado.CedulaRuc.IndexOf(texto, StringComparison.OrdinalIgnoreCase) >= 0)) &&
 
 
             (estado == "Todas"
@@ -148,7 +148,7 @@ namespace Sistema_De_Facturacion_Ventas.Formularios {
             try
             {
                 RepositorioDatos.AnularFactura(f.NumeroFactura);
-                MessageBox.Show("Factura anulada, stock reintegrado");
+                MessageBox.Show("Factura anulada, stock reintegrado", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Filtrar();
 
                 //el menu principal recalculara las ventas del dia
@@ -189,9 +189,9 @@ namespace Sistema_De_Facturacion_Ventas.Formularios {
                             f.Estado);
                     }
                     File.WriteAllText(dlg.FileName, sb.ToString(), Encoding.UTF8);
-                    MessageBox.Show("Resumen exportado correctamente.");
+                    MessageBox.Show("Resumen exportado correctamente.", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                catch (IOException ex)
+                catch (Exception ex)
                 {
                     MessageBox.Show("No se pudo guardar el archivo: " + ex.Message);
                 }
@@ -204,7 +204,7 @@ namespace Sistema_De_Facturacion_Ventas.Formularios {
         {
             if (dtpDesde.Value.Date > dtpHasta.Value.Date)
             {
-                MessageBox.Show("La fecha 'Desde' no puede ser mayor que la fecha 'Hasta'.");
+                MessageBox.Show("La fecha 'Desde' no puede ser mayor que la fecha 'Hasta'.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             Filtrar();
