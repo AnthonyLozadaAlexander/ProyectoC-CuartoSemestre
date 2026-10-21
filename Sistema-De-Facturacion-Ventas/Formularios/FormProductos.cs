@@ -48,7 +48,7 @@ namespace Sistema_De_Facturacion_Ventas.Formularios {
 
         // Agregar un producto a la tabla del DataGridView
         private void agregarProductoTabla(Producto p) {
-            dvgProductos.Rows.Add(p.Codigo, p.Nombre, p.PrecioUnitario, p.Stock, p.IdCategoria);
+            dvgProductos.Rows.Add(p.Codigo, p.Nombre, p.PrecioUnitario, p.IdCategoria, p.Stock);
         }
 
         // Verificar si un producto con el código ingresado ya existe en la lista de productos
@@ -141,12 +141,14 @@ namespace Sistema_De_Facturacion_Ventas.Formularios {
 
             if (verificarExisteCodigo(codigo)) {
                 productoBuscado = RepositorioDatos.BuscarProducto(codigo);
+                int index = RepositorioDatos.Productos.IndexOf(productoBuscado);
                 productoBuscado.Nombre = nombre;
                 productoBuscado.PrecioUnitario = precio;
                 productoBuscado.Stock = stock;
                 productoBuscado.IdCategoria = RepositorioDatos.Categorias[cboCategoria.SelectedIndex].IdCategoria;
 
                 cargarProductos(listaVisibleEnTabla()); // Actualizar la tabla con los productos filtrados
+                dvgProductos.Rows[index].Selected = true; // Seleccionar la fila actualizada en la tabla
                 limpiarCampos(); // Limpiar los campos después de la actualización
                 MessageBox.Show("Actualizacion Exitosa", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information); // Mostrar mensaje de éxito
 
