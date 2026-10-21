@@ -119,6 +119,7 @@ namespace Sistema_De_Facturacion_Ventas.Formularios {
                 MessageBox.Show("Error: Por favor, complete todos los campos correctamente.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+
             if(!Decimal.TryParse(txtPrecio.Text, out Decimal precio)) {
                 MessageBox.Show("Error: El precio no es válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -158,6 +159,33 @@ namespace Sistema_De_Facturacion_Ventas.Formularios {
         }
 
         private void btnEliminar_Click(object sender, EventArgs e) {
+            if (String.IsNullOrEmpty(txtCodigo.Text)) {
+                MessageBox.Show("Por favor, ingrese el código del producto a eliminar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else {
+                String codigo = txtCodigo.Text;
+                Producto pBuscado = RepositorioDatos.BuscarProducto(codigo);
+
+                if(pBuscado == null) {
+                    MessageBox.Show("Error: El producto no existe.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                else {
+                    DialogResult consulta = MessageBox.Show("¿Está seguro de eliminar el producto?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                    if(consulta == DialogResult.Yes) {
+                        RepositorioDatos.Productos.Remove(pBuscado);
+                        cargarProductos(listaVisibleEnTabla());
+                        MessageBox.Show($"Producto {pBuscado.Nombre} {Environment.NewLine} eliminado correctamente.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        limpiarCampos();
+                    }
+                    else {
+                        return;
+                    }
+                }
+            }
+
 
         }
 
