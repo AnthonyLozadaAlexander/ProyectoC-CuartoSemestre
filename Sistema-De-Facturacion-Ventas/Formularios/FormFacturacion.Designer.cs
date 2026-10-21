@@ -32,471 +32,491 @@ namespace Sistema_De_Facturacion_Ventas.Formularios
         /// </summary>
         private void InitializeComponent()
         {
-            label1 = new Label();
-            label2 = new Label();
-            label3 = new Label();
-            label4 = new Label();
-            groupBox1 = new GroupBox();
-            txtTelefono = new TextBox();
-            label8 = new Label();
-            txtDireccion = new TextBox();
-            label7 = new Label();
-            textNombres = new TextBox();
-            label6 = new Label();
-            button1 = new Button();
-            textBox1 = new TextBox();
-            label5 = new Label();
-            grpProducto = new GroupBox();
-            button2 = new Button();
-            btnAgregar = new Button();
-            label12 = new Label();
-            nudCantidad = new NumericUpDown();
-            label11 = new Label();
-            lblStock = new Label();
-            lblPrecio = new Label();
-            label10 = new Label();
-            btnBuscarProducto = new Button();
-            cboProductos = new ComboBox();
-            label9 = new Label();
-            dgvDetalles = new DataGridView();
-            colCodigo = new DataGridViewTextBoxColumn();
-            ColDescripcion = new DataGridViewTextBoxColumn();
-            ColCantidad = new DataGridViewTextBoxColumn();
-            ColPrecio = new DataGridViewTextBoxColumn();
-            colSubtotal = new DataGridViewTextBoxColumn();
-            btnLimpiar = new Button();
-            btnEmitir = new Button();
-            lblsubtotal2 = new Label();
-            lblIVA = new Label();
-            lblTotalIVA = new Label();
-            lblTOTAL = new Label();
-            lblTotalFinal = new Label();
-            label13 = new Label();
-            groupBox1.SuspendLayout();
-            grpProducto.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)nudCantidad).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dgvDetalles).BeginInit();
-            SuspendLayout();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtTelefono = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtDireccion = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.textNombres = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.grpProducto = new System.Windows.Forms.GroupBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.btnAgregar = new System.Windows.Forms.Button();
+            this.label12 = new System.Windows.Forms.Label();
+            this.nudCantidad = new System.Windows.Forms.NumericUpDown();
+            this.label11 = new System.Windows.Forms.Label();
+            this.lblStock = new System.Windows.Forms.Label();
+            this.lblPrecio = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.btnBuscarProducto = new System.Windows.Forms.Button();
+            this.cboProductos = new System.Windows.Forms.ComboBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.dgvDetalles = new System.Windows.Forms.DataGridView();
+            this.colCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColPrecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSubtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnLimpiar = new System.Windows.Forms.Button();
+            this.btnEmitir = new System.Windows.Forms.Button();
+            this.lblsubtotal2 = new System.Windows.Forms.Label();
+            this.lblIVA = new System.Windows.Forms.Label();
+            this.lblTotalIVA = new System.Windows.Forms.Label();
+            this.lblTOTAL = new System.Windows.Forms.Label();
+            this.lblTotalFinal = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.groupBox1.SuspendLayout();
+            this.grpProducto.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudCantidad)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDetalles)).BeginInit();
+            this.SuspendLayout();
             // 
             // label1
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(12, 28);
-            label1.Name = "label1";
-            label1.Size = new Size(134, 30);
-            label1.TabIndex = 0;
-            label1.Text = "Factura Nro:";
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(10, 24);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(159, 35);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Factura Nro:";
             // 
             // label2
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(152, 28);
-            label2.Name = "label2";
-            label2.Size = new Size(107, 30);
-            label2.TabIndex = 1;
-            label2.Text = "FAC-0001";
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(130, 24);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(127, 35);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "FAC-0001";
             // 
             // label3
             // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(642, 28);
-            label3.Name = "label3";
-            label3.Size = new Size(81, 30);
-            label3.TabIndex = 2;
-            label3.Text = "Fecha: ";
-            label3.Click += label3_Click;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(550, 24);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(96, 35);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Fecha: ";
             // 
             // label4
             // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.Location = new Point(729, 28);
-            label4.Name = "label4";
-            label4.Size = new Size(127, 30);
-            label4.TabIndex = 3;
-            label4.Text = "15/10/2026";
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(625, 24);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(149, 35);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "15/10/2026";
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(txtTelefono);
-            groupBox1.Controls.Add(label8);
-            groupBox1.Controls.Add(txtDireccion);
-            groupBox1.Controls.Add(label7);
-            groupBox1.Controls.Add(textNombres);
-            groupBox1.Controls.Add(label6);
-            groupBox1.Controls.Add(button1);
-            groupBox1.Controls.Add(textBox1);
-            groupBox1.Controls.Add(label5);
-            groupBox1.Location = new Point(12, 64);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(826, 141);
-            groupBox1.TabIndex = 4;
-            groupBox1.TabStop = false;
-            groupBox1.Text = "DATOS DEL CLIENTE";
+            this.groupBox1.Controls.Add(this.txtTelefono);
+            this.groupBox1.Controls.Add(this.label8);
+            this.groupBox1.Controls.Add(this.txtDireccion);
+            this.groupBox1.Controls.Add(this.label7);
+            this.groupBox1.Controls.Add(this.textNombres);
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Location = new System.Drawing.Point(10, 55);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(708, 122);
+            this.groupBox1.TabIndex = 4;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "DATOS DEL CLIENTE";
             // 
             // txtTelefono
             // 
-            txtTelefono.Location = new Point(109, 107);
-            txtTelefono.Name = "txtTelefono";
-            txtTelefono.Size = new Size(427, 23);
-            txtTelefono.TabIndex = 12;
-            txtTelefono.TextChanged += txtTelefono_TextChanged;
+            this.txtTelefono.Location = new System.Drawing.Point(127, 93);
+            this.txtTelefono.Name = "txtTelefono";
+            this.txtTelefono.Size = new System.Drawing.Size(367, 20);
+            this.txtTelefono.TabIndex = 12;
             // 
             // label8
             // 
-            label8.AutoSize = true;
-            label8.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label8.Location = new Point(10, 106);
-            label8.Name = "label8";
-            label8.Size = new Size(74, 20);
-            label8.TabIndex = 11;
-            label8.Text = "Teléfono:";
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(9, 92);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(91, 25);
+            this.label8.TabIndex = 11;
+            this.label8.Text = "Teléfono:";
             // 
             // txtDireccion
             // 
-            txtDireccion.Location = new Point(109, 78);
-            txtDireccion.Name = "txtDireccion";
-            txtDireccion.Size = new Size(427, 23);
-            txtDireccion.TabIndex = 10;
+            this.txtDireccion.Location = new System.Drawing.Point(127, 68);
+            this.txtDireccion.Name = "txtDireccion";
+            this.txtDireccion.Size = new System.Drawing.Size(367, 20);
+            this.txtDireccion.TabIndex = 10;
             // 
             // label7
             // 
-            label7.AutoSize = true;
-            label7.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label7.Location = new Point(6, 77);
-            label7.Name = "label7";
-            label7.Size = new Size(78, 20);
-            label7.TabIndex = 9;
-            label7.Text = "Dirección:";
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(5, 67);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(97, 25);
+            this.label7.TabIndex = 9;
+            this.label7.Text = "Dirección:";
             // 
             // textNombres
             // 
-            textNombres.Location = new Point(109, 49);
-            textNombres.Name = "textNombres";
-            textNombres.Size = new Size(427, 23);
-            textNombres.TabIndex = 8;
+            this.textNombres.Location = new System.Drawing.Point(127, 42);
+            this.textNombres.Name = "textNombres";
+            this.textNombres.Size = new System.Drawing.Size(367, 20);
+            this.textNombres.TabIndex = 8;
             // 
             // label6
             // 
-            label6.AutoSize = true;
-            label6.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label6.Location = new Point(9, 48);
-            label6.Name = "label6";
-            label6.Size = new Size(75, 20);
-            label6.TabIndex = 7;
-            label6.Text = "Nombre: ";
-            label6.Click += label6_Click;
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(8, 42);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(91, 25);
+            this.label6.TabIndex = 7;
+            this.label6.Text = "Nombre: ";
             // 
             // button1
             // 
-            button1.Location = new Point(300, 19);
-            button1.Name = "button1";
-            button1.Size = new Size(75, 23);
-            button1.TabIndex = 5;
-            button1.Text = "Buscar";
-            button1.UseVisualStyleBackColor = true;
+            this.button1.Location = new System.Drawing.Point(291, 16);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(64, 20);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "Buscar";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(109, 20);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(171, 23);
-            textBox1.TabIndex = 6;
+            this.textBox1.Location = new System.Drawing.Point(127, 17);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(147, 20);
+            this.textBox1.TabIndex = 6;
             // 
             // label5
             // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label5.ForeColor = SystemColors.ControlText;
-            label5.Location = new Point(6, 19);
-            label5.Name = "label5";
-            label5.Size = new Size(97, 20);
-            label5.TabIndex = 5;
-            label5.Text = "Cedúla/RUC:";
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label5.Location = new System.Drawing.Point(5, 16);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(119, 25);
+            this.label5.TabIndex = 5;
+            this.label5.Text = "Cedúla/RUC:";
             // 
             // grpProducto
             // 
-            grpProducto.Controls.Add(button2);
-            grpProducto.Controls.Add(btnAgregar);
-            grpProducto.Controls.Add(label12);
-            grpProducto.Controls.Add(nudCantidad);
-            grpProducto.Controls.Add(label11);
-            grpProducto.Controls.Add(lblStock);
-            grpProducto.Controls.Add(lblPrecio);
-            grpProducto.Controls.Add(label10);
-            grpProducto.Controls.Add(btnBuscarProducto);
-            grpProducto.Controls.Add(cboProductos);
-            grpProducto.Controls.Add(label9);
-            grpProducto.Location = new Point(12, 221);
-            grpProducto.Name = "grpProducto";
-            grpProducto.Size = new Size(826, 136);
-            grpProducto.TabIndex = 5;
-            grpProducto.TabStop = false;
-            grpProducto.Text = "PRODUCTO";
+            this.grpProducto.Controls.Add(this.button2);
+            this.grpProducto.Controls.Add(this.btnAgregar);
+            this.grpProducto.Controls.Add(this.label12);
+            this.grpProducto.Controls.Add(this.nudCantidad);
+            this.grpProducto.Controls.Add(this.label11);
+            this.grpProducto.Controls.Add(this.lblStock);
+            this.grpProducto.Controls.Add(this.lblPrecio);
+            this.grpProducto.Controls.Add(this.label10);
+            this.grpProducto.Controls.Add(this.btnBuscarProducto);
+            this.grpProducto.Controls.Add(this.cboProductos);
+            this.grpProducto.Controls.Add(this.label9);
+            this.grpProducto.Location = new System.Drawing.Point(10, 192);
+            this.grpProducto.Name = "grpProducto";
+            this.grpProducto.Size = new System.Drawing.Size(708, 118);
+            this.grpProducto.TabIndex = 5;
+            this.grpProducto.TabStop = false;
+            this.grpProducto.Text = "PRODUCTO";
             // 
             // button2
             // 
-            button2.Location = new Point(362, 92);
-            button2.Name = "button2";
-            button2.Size = new Size(122, 38);
-            button2.TabIndex = 23;
-            button2.Text = "Eliminar Reglón";
-            button2.UseVisualStyleBackColor = true;
+            this.button2.Location = new System.Drawing.Point(310, 80);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(105, 33);
+            this.button2.TabIndex = 23;
+            this.button2.Text = "Eliminar Reglón";
+            this.button2.UseVisualStyleBackColor = true;
             // 
             // btnAgregar
             // 
-            btnAgregar.Location = new Point(67, 92);
-            btnAgregar.Name = "btnAgregar";
-            btnAgregar.Size = new Size(122, 38);
-            btnAgregar.TabIndex = 22;
-            btnAgregar.Text = "Añadir a Factura";
-            btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Location = new System.Drawing.Point(57, 80);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(105, 33);
+            this.btnAgregar.TabIndex = 22;
+            this.btnAgregar.Text = "Añadir a Factura";
+            this.btnAgregar.UseVisualStyleBackColor = true;
             // 
             // label12
             // 
-            label12.AutoSize = true;
-            label12.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label12.Location = new Point(271, 54);
-            label12.Name = "label12";
-            label12.Size = new Size(18, 20);
-            label12.TabIndex = 21;
-            label12.Text = "0";
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(232, 47);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(22, 25);
+            this.label12.TabIndex = 21;
+            this.label12.Text = "0";
             // 
             // nudCantidad
             // 
-            nudCantidad.Location = new Point(443, 54);
-            nudCantidad.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
-            nudCantidad.Name = "nudCantidad";
-            nudCantidad.Size = new Size(69, 23);
-            nudCantidad.TabIndex = 20;
-            nudCantidad.Value = new decimal(new int[] { 1, 0, 0, 0 });
+            this.nudCantidad.Location = new System.Drawing.Point(380, 47);
+            this.nudCantidad.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nudCantidad.Name = "nudCantidad";
+            this.nudCantidad.Size = new System.Drawing.Size(59, 20);
+            this.nudCantidad.TabIndex = 20;
+            this.nudCantidad.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // label11
             // 
-            label11.AutoSize = true;
-            label11.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label11.Location = new Point(362, 54);
-            label11.Name = "label11";
-            label11.Size = new Size(75, 20);
-            label11.TabIndex = 19;
-            label11.Text = "Cantidad:";
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(310, 47);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(93, 25);
+            this.label11.TabIndex = 19;
+            this.label11.Text = "Cantidad:";
             // 
             // lblStock
             // 
-            lblStock.AutoSize = true;
-            lblStock.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblStock.Location = new Point(198, 54);
-            lblStock.Name = "lblStock";
-            lblStock.Size = new Size(52, 20);
-            lblStock.TabIndex = 18;
-            lblStock.Text = "Stock:";
+            this.lblStock.AutoSize = true;
+            this.lblStock.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStock.Location = new System.Drawing.Point(170, 47);
+            this.lblStock.Name = "lblStock";
+            this.lblStock.Size = new System.Drawing.Size(65, 25);
+            this.lblStock.TabIndex = 18;
+            this.lblStock.Text = "Stock:";
             // 
             // lblPrecio
             // 
-            lblPrecio.AutoSize = true;
-            lblPrecio.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblPrecio.Location = new Point(101, 54);
-            lblPrecio.Name = "lblPrecio";
-            lblPrecio.Size = new Size(53, 20);
-            lblPrecio.TabIndex = 17;
-            lblPrecio.Text = "$ 0.00";
+            this.lblPrecio.AutoSize = true;
+            this.lblPrecio.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPrecio.Location = new System.Drawing.Point(87, 47);
+            this.lblPrecio.Name = "lblPrecio";
+            this.lblPrecio.Size = new System.Drawing.Size(62, 25);
+            this.lblPrecio.TabIndex = 17;
+            this.lblPrecio.Text = "$ 0.00";
             // 
             // label10
             // 
-            label10.AutoSize = true;
-            label10.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label10.Location = new Point(6, 54);
-            label10.Name = "label10";
-            label10.Size = new Size(56, 20);
-            label10.TabIndex = 16;
-            label10.Text = "Precio:";
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(5, 47);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(70, 25);
+            this.label10.TabIndex = 16;
+            this.label10.Text = "Precio:";
             // 
             // btnBuscarProducto
             // 
-            btnBuscarProducto.Location = new Point(362, 19);
-            btnBuscarProducto.Name = "btnBuscarProducto";
-            btnBuscarProducto.Size = new Size(75, 23);
-            btnBuscarProducto.TabIndex = 15;
-            btnBuscarProducto.Text = "Buscar";
-            btnBuscarProducto.UseVisualStyleBackColor = true;
+            this.btnBuscarProducto.Location = new System.Drawing.Point(310, 16);
+            this.btnBuscarProducto.Name = "btnBuscarProducto";
+            this.btnBuscarProducto.Size = new System.Drawing.Size(64, 20);
+            this.btnBuscarProducto.TabIndex = 15;
+            this.btnBuscarProducto.Text = "Buscar";
+            this.btnBuscarProducto.UseVisualStyleBackColor = true;
             // 
             // cboProductos
             // 
-            cboProductos.DropDownStyle = ComboBoxStyle.DropDownList;
-            cboProductos.FormattingEnabled = true;
-            cboProductos.Location = new Point(101, 20);
-            cboProductos.Name = "cboProductos";
-            cboProductos.Size = new Size(244, 23);
-            cboProductos.TabIndex = 14;
+            this.cboProductos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboProductos.FormattingEnabled = true;
+            this.cboProductos.Location = new System.Drawing.Point(87, 17);
+            this.cboProductos.Name = "cboProductos";
+            this.cboProductos.Size = new System.Drawing.Size(210, 21);
+            this.cboProductos.TabIndex = 14;
             // 
             // label9
             // 
-            label9.AutoSize = true;
-            label9.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label9.Location = new Point(6, 19);
-            label9.Name = "label9";
-            label9.Size = new Size(77, 20);
-            label9.TabIndex = 13;
-            label9.Text = "Producto:";
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(5, 16);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(95, 25);
+            this.label9.TabIndex = 13;
+            this.label9.Text = "Producto:";
             // 
             // dgvDetalles
             // 
-            dgvDetalles.AllowUserToAddRows = false;
-            dgvDetalles.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvDetalles.Columns.AddRange(new DataGridViewColumn[] { colCodigo, ColDescripcion, ColCantidad, ColPrecio, colSubtotal });
-            dgvDetalles.Location = new Point(12, 363);
-            dgvDetalles.Name = "dgvDetalles";
-            dgvDetalles.ReadOnly = true;
-            dgvDetalles.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvDetalles.Size = new Size(826, 193);
-            dgvDetalles.TabIndex = 6;
+            this.dgvDetalles.AllowUserToAddRows = false;
+            this.dgvDetalles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDetalles.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colCodigo,
+            this.ColDescripcion,
+            this.ColCantidad,
+            this.ColPrecio,
+            this.colSubtotal});
+            this.dgvDetalles.Location = new System.Drawing.Point(10, 315);
+            this.dgvDetalles.Name = "dgvDetalles";
+            this.dgvDetalles.ReadOnly = true;
+            this.dgvDetalles.RowHeadersWidth = 47;
+            this.dgvDetalles.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvDetalles.Size = new System.Drawing.Size(708, 167);
+            this.dgvDetalles.TabIndex = 6;
             // 
             // colCodigo
             // 
-            colCodigo.HeaderText = "Código";
-            colCodigo.Name = "colCodigo";
-            colCodigo.ReadOnly = true;
+            this.colCodigo.HeaderText = "Código";
+            this.colCodigo.MinimumWidth = 6;
+            this.colCodigo.Name = "colCodigo";
+            this.colCodigo.ReadOnly = true;
+            this.colCodigo.Width = 115;
             // 
             // ColDescripcion
             // 
-            ColDescripcion.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            ColDescripcion.HeaderText = "Descripción";
-            ColDescripcion.Name = "ColDescripcion";
-            ColDescripcion.ReadOnly = true;
+            this.ColDescripcion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ColDescripcion.HeaderText = "Descripción";
+            this.ColDescripcion.MinimumWidth = 6;
+            this.ColDescripcion.Name = "ColDescripcion";
+            this.ColDescripcion.ReadOnly = true;
             // 
             // ColCantidad
             // 
-            ColCantidad.HeaderText = "Cantidad";
-            ColCantidad.Name = "ColCantidad";
-            ColCantidad.ReadOnly = true;
+            this.ColCantidad.HeaderText = "Cantidad";
+            this.ColCantidad.MinimumWidth = 6;
+            this.ColCantidad.Name = "ColCantidad";
+            this.ColCantidad.ReadOnly = true;
+            this.ColCantidad.Width = 115;
             // 
             // ColPrecio
             // 
-            ColPrecio.HeaderText = "Precio";
-            ColPrecio.Name = "ColPrecio";
-            ColPrecio.ReadOnly = true;
+            this.ColPrecio.HeaderText = "Precio";
+            this.ColPrecio.MinimumWidth = 6;
+            this.ColPrecio.Name = "ColPrecio";
+            this.ColPrecio.ReadOnly = true;
+            this.ColPrecio.Width = 115;
             // 
             // colSubtotal
             // 
-            colSubtotal.HeaderText = "SubTotal";
-            colSubtotal.Name = "colSubtotal";
-            colSubtotal.ReadOnly = true;
+            this.colSubtotal.HeaderText = "SubTotal";
+            this.colSubtotal.MinimumWidth = 6;
+            this.colSubtotal.Name = "colSubtotal";
+            this.colSubtotal.ReadOnly = true;
+            this.colSubtotal.Width = 115;
             // 
             // btnLimpiar
             // 
-            btnLimpiar.Location = new Point(12, 572);
-            btnLimpiar.Name = "btnLimpiar";
-            btnLimpiar.Size = new Size(165, 35);
-            btnLimpiar.TabIndex = 24;
-            btnLimpiar.Text = "Limpiar";
-            btnLimpiar.UseVisualStyleBackColor = true;
+            this.btnLimpiar.Location = new System.Drawing.Point(10, 496);
+            this.btnLimpiar.Name = "btnLimpiar";
+            this.btnLimpiar.Size = new System.Drawing.Size(141, 30);
+            this.btnLimpiar.TabIndex = 24;
+            this.btnLimpiar.Text = "Limpiar";
+            this.btnLimpiar.UseVisualStyleBackColor = true;
             // 
             // btnEmitir
             // 
-            btnEmitir.Location = new Point(12, 613);
-            btnEmitir.Name = "btnEmitir";
-            btnEmitir.Size = new Size(165, 35);
-            btnEmitir.TabIndex = 25;
-            btnEmitir.Text = "Registrar y Emitir";
-            btnEmitir.UseVisualStyleBackColor = true;
+            this.btnEmitir.Location = new System.Drawing.Point(10, 531);
+            this.btnEmitir.Name = "btnEmitir";
+            this.btnEmitir.Size = new System.Drawing.Size(141, 30);
+            this.btnEmitir.TabIndex = 25;
+            this.btnEmitir.Text = "Registrar y Emitir";
+            this.btnEmitir.UseVisualStyleBackColor = true;
             // 
             // lblsubtotal2
             // 
-            lblsubtotal2.AutoSize = true;
-            lblsubtotal2.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblsubtotal2.Location = new Point(743, 572);
-            lblsubtotal2.Name = "lblsubtotal2";
-            lblsubtotal2.Size = new Size(53, 20);
-            lblsubtotal2.TabIndex = 24;
-            lblsubtotal2.Text = "$ 0.00";
+            this.lblsubtotal2.AutoSize = true;
+            this.lblsubtotal2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblsubtotal2.Location = new System.Drawing.Point(637, 496);
+            this.lblsubtotal2.Name = "lblsubtotal2";
+            this.lblsubtotal2.Size = new System.Drawing.Size(62, 25);
+            this.lblsubtotal2.TabIndex = 24;
+            this.lblsubtotal2.Text = "$ 0.00";
             // 
             // lblIVA
             // 
-            lblIVA.AutoSize = true;
-            lblIVA.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblIVA.Location = new Point(650, 601);
-            lblIVA.Name = "lblIVA";
-            lblIVA.Size = new Size(73, 20);
-            lblIVA.TabIndex = 26;
-            lblIVA.Text = "IVA(15%):";
+            this.lblIVA.AutoSize = true;
+            this.lblIVA.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIVA.Location = new System.Drawing.Point(557, 521);
+            this.lblIVA.Name = "lblIVA";
+            this.lblIVA.Size = new System.Drawing.Size(88, 25);
+            this.lblIVA.TabIndex = 26;
+            this.lblIVA.Text = "IVA(15%):";
             // 
             // lblTotalIVA
             // 
-            lblTotalIVA.AutoSize = true;
-            lblTotalIVA.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblTotalIVA.Location = new Point(743, 601);
-            lblTotalIVA.Name = "lblTotalIVA";
-            lblTotalIVA.Size = new Size(53, 20);
-            lblTotalIVA.TabIndex = 27;
-            lblTotalIVA.Text = "$ 0.00";
+            this.lblTotalIVA.AutoSize = true;
+            this.lblTotalIVA.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalIVA.Location = new System.Drawing.Point(637, 521);
+            this.lblTotalIVA.Name = "lblTotalIVA";
+            this.lblTotalIVA.Size = new System.Drawing.Size(62, 25);
+            this.lblTotalIVA.TabIndex = 27;
+            this.lblTotalIVA.Text = "$ 0.00";
             // 
             // lblTOTAL
             // 
-            lblTOTAL.AutoSize = true;
-            lblTOTAL.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblTOTAL.Location = new Point(650, 632);
-            lblTOTAL.Name = "lblTOTAL";
-            lblTOTAL.Size = new Size(73, 25);
-            lblTOTAL.TabIndex = 28;
-            lblTOTAL.Text = "TOTAL:";
+            this.lblTOTAL.AutoSize = true;
+            this.lblTOTAL.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTOTAL.Location = new System.Drawing.Point(557, 548);
+            this.lblTOTAL.Name = "lblTOTAL";
+            this.lblTOTAL.Size = new System.Drawing.Size(84, 30);
+            this.lblTOTAL.TabIndex = 28;
+            this.lblTOTAL.Text = "TOTAL:";
             // 
             // lblTotalFinal
             // 
-            lblTotalFinal.AutoSize = true;
-            lblTotalFinal.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblTotalFinal.Location = new Point(743, 628);
-            lblTotalFinal.Name = "lblTotalFinal";
-            lblTotalFinal.Size = new Size(73, 30);
-            lblTotalFinal.TabIndex = 29;
-            lblTotalFinal.Text = "$ 0.00";
+            this.lblTotalFinal.AutoSize = true;
+            this.lblTotalFinal.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalFinal.Location = new System.Drawing.Point(637, 544);
+            this.lblTotalFinal.Name = "lblTotalFinal";
+            this.lblTotalFinal.Size = new System.Drawing.Size(85, 35);
+            this.lblTotalFinal.TabIndex = 29;
+            this.lblTotalFinal.Text = "$ 0.00";
             // 
             // label13
             // 
-            label13.AutoSize = true;
-            label13.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label13.Location = new Point(650, 572);
-            label13.Name = "label13";
-            label13.Size = new Size(70, 20);
-            label13.TabIndex = 30;
-            label13.Text = "Subtotal:";
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(557, 496);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(87, 25);
+            this.label13.TabIndex = 30;
+            this.label13.Text = "Subtotal:";
             // 
-            // Facturacion
+            // FormFacturacion
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.Control;
-            ClientSize = new Size(984, 661);
-            Controls.Add(label13);
-            Controls.Add(lblTotalFinal);
-            Controls.Add(lblTOTAL);
-            Controls.Add(lblTotalIVA);
-            Controls.Add(lblIVA);
-            Controls.Add(lblsubtotal2);
-            Controls.Add(btnEmitir);
-            Controls.Add(btnLimpiar);
-            Controls.Add(dgvDetalles);
-            Controls.Add(grpProducto);
-            Controls.Add(groupBox1);
-            Controls.Add(label4);
-            Controls.Add(label3);
-            Controls.Add(label2);
-            Controls.Add(label1);
-            ForeColor = SystemColors.ControlText;
-            Name = "Facturacion";
-            StartPosition = FormStartPosition.CenterScreen;
-            Text = "0";
-            Load += Form1_Load;
-            groupBox1.ResumeLayout(false);
-            groupBox1.PerformLayout();
-            grpProducto.ResumeLayout(false);
-            grpProducto.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)nudCantidad).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dgvDetalles).EndInit();
-            ResumeLayout(false);
-            PerformLayout();
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(843, 607);
+            this.Controls.Add(this.label13);
+            this.Controls.Add(this.lblTotalFinal);
+            this.Controls.Add(this.lblTOTAL);
+            this.Controls.Add(this.lblTotalIVA);
+            this.Controls.Add(this.lblIVA);
+            this.Controls.Add(this.lblsubtotal2);
+            this.Controls.Add(this.btnEmitir);
+            this.Controls.Add(this.btnLimpiar);
+            this.Controls.Add(this.dgvDetalles);
+            this.Controls.Add(this.grpProducto);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.Name = "FormFacturacion";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "0";
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.grpProducto.ResumeLayout(false);
+            this.grpProducto.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudCantidad)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDetalles)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion

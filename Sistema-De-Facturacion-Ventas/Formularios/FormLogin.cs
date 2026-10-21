@@ -15,6 +15,7 @@ namespace Sistema_De_Facturacion_Ventas {
     public partial class FormLogin : Form {
         public FormLogin() {
             InitializeComponent();
+            CenterToScreen();
         }
         private void FormLogin_Load(object sender, EventArgs e)
         {
@@ -73,6 +74,5 @@ namespace Sistema_De_Facturacion_Ventas {
             this.DialogResult = DialogResult.Cancel;
             this.Close();
         }
-
     }
 }
