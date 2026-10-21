@@ -26,23 +26,28 @@
             this.lblTitulo = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.grpProducto = new System.Windows.Forms.GroupBox();
+            this.txtStock = new System.Windows.Forms.TextBox();
+            this.txtPrecio = new System.Windows.Forms.TextBox();
+            this.txtNombre = new System.Windows.Forms.TextBox();
+            this.txtCodigo = new System.Windows.Forms.TextBox();
+            this.cboCategoria = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnLimpiar = new System.Windows.Forms.Button();
+            this.btnEliminar = new System.Windows.Forms.Button();
+            this.btnActualizar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.dvgProductos = new System.Windows.Forms.DataGridView();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.grpProducto.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dvgProductos)).BeginInit();
             this.SuspendLayout();
@@ -69,11 +74,11 @@
             // 
             // grpProducto
             // 
-            this.grpProducto.Controls.Add(this.textBox4);
-            this.grpProducto.Controls.Add(this.textBox3);
-            this.grpProducto.Controls.Add(this.textBox2);
-            this.grpProducto.Controls.Add(this.textBox1);
-            this.grpProducto.Controls.Add(this.comboBox1);
+            this.grpProducto.Controls.Add(this.txtStock);
+            this.grpProducto.Controls.Add(this.txtPrecio);
+            this.grpProducto.Controls.Add(this.txtNombre);
+            this.grpProducto.Controls.Add(this.txtCodigo);
+            this.grpProducto.Controls.Add(this.cboCategoria);
             this.grpProducto.Controls.Add(this.label7);
             this.grpProducto.Controls.Add(this.label6);
             this.grpProducto.Controls.Add(this.label5);
@@ -81,101 +86,74 @@
             this.grpProducto.Controls.Add(this.label3);
             this.grpProducto.Controls.Add(this.txtBuscar);
             this.grpProducto.Controls.Add(this.label2);
-            this.grpProducto.Controls.Add(this.button3);
-            this.grpProducto.Controls.Add(this.button2);
-            this.grpProducto.Controls.Add(this.button1);
+            this.grpProducto.Controls.Add(this.btnLimpiar);
+            this.grpProducto.Controls.Add(this.btnEliminar);
+            this.grpProducto.Controls.Add(this.btnActualizar);
             this.grpProducto.Controls.Add(this.btnGuardar);
             this.grpProducto.Controls.Add(this.dvgProductos);
             this.grpProducto.Font = new System.Drawing.Font("Cascadia Code SemiBold", 11.78182F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grpProducto.Location = new System.Drawing.Point(30, 93);
+            this.grpProducto.Location = new System.Drawing.Point(30, 83);
             this.grpProducto.Name = "grpProducto";
-            this.grpProducto.Size = new System.Drawing.Size(764, 525);
+            this.grpProducto.Size = new System.Drawing.Size(764, 553);
             this.grpProducto.TabIndex = 2;
             this.grpProducto.TabStop = false;
             this.grpProducto.Text = "DATOS DEL PRODUCTO";
             // 
-            // txtBuscar
+            // txtStock
             // 
-            this.txtBuscar.Location = new System.Drawing.Point(130, 257);
-            this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(110, 28);
-            this.txtBuscar.TabIndex = 6;
+            this.txtStock.Location = new System.Drawing.Point(495, 111);
+            this.txtStock.Name = "txtStock";
+            this.txtStock.Size = new System.Drawing.Size(161, 28);
+            this.txtStock.TabIndex = 16;
             // 
-            // label2
+            // txtPrecio
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Cascadia Code SemiBold", 13.74545F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(35, 257);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(96, 28);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Buscar:";
+            this.txtPrecio.Location = new System.Drawing.Point(152, 148);
+            this.txtPrecio.Name = "txtPrecio";
+            this.txtPrecio.Size = new System.Drawing.Size(134, 28);
+            this.txtPrecio.TabIndex = 15;
             // 
-            // button3
+            // txtNombre
             // 
-            this.button3.Location = new System.Drawing.Point(553, 200);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(161, 40);
-            this.button3.TabIndex = 4;
-            this.button3.Text = "[ Limpiar ]";
-            this.button3.UseVisualStyleBackColor = true;
+            this.txtNombre.Location = new System.Drawing.Point(152, 101);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(134, 28);
+            this.txtNombre.TabIndex = 14;
             // 
-            // button2
+            // txtCodigo
             // 
-            this.button2.Location = new System.Drawing.Point(391, 200);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(156, 40);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "[ Eliminar ]";
-            this.button2.UseVisualStyleBackColor = true;
+            this.txtCodigo.Location = new System.Drawing.Point(152, 55);
+            this.txtCodigo.Name = "txtCodigo";
+            this.txtCodigo.Size = new System.Drawing.Size(134, 28);
+            this.txtCodigo.TabIndex = 13;
             // 
-            // button1
+            // cboCategoria
             // 
-            this.button1.Location = new System.Drawing.Point(211, 200);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(174, 40);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "[ Actualizar ]";
-            this.button1.UseVisualStyleBackColor = true;
+            this.cboCategoria.FormattingEnabled = true;
+            this.cboCategoria.Location = new System.Drawing.Point(495, 51);
+            this.cboCategoria.Name = "cboCategoria";
+            this.cboCategoria.Size = new System.Drawing.Size(161, 32);
+            this.cboCategoria.TabIndex = 12;
             // 
-            // btnGuardar
+            // label7
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(65, 200);
-            this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(140, 40);
-            this.btnGuardar.TabIndex = 1;
-            this.btnGuardar.Text = "[ Guardar ]";
-            this.btnGuardar.UseVisualStyleBackColor = true;
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Cascadia Code SemiBold", 13.74545F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(357, 55);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(132, 28);
+            this.label7.TabIndex = 11;
+            this.label7.Text = "Categoria:";
             // 
-            // dvgProductos
+            // label6
             // 
-            this.dvgProductos.BackgroundColor = System.Drawing.Color.White;
-            this.dvgProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dvgProductos.Location = new System.Drawing.Point(40, 299);
-            this.dvgProductos.Name = "dvgProductos";
-            this.dvgProductos.RowHeadersWidth = 47;
-            this.dvgProductos.Size = new System.Drawing.Size(685, 200);
-            this.dvgProductos.TabIndex = 0;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Cascadia Code SemiBold", 13.74545F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(60, 101);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(96, 28);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "Nombre:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Cascadia Code SemiBold", 13.74545F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(60, 148);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(96, 28);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Precio:";
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Cascadia Code SemiBold", 13.74545F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(405, 111);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(84, 28);
+            this.label6.TabIndex = 10;
+            this.label6.Text = "Stock:";
             // 
             // label5
             // 
@@ -187,61 +165,139 @@
             this.label5.TabIndex = 9;
             this.label5.Text = "Codigo:";
             // 
-            // label6
+            // label4
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Cascadia Code SemiBold", 13.74545F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(357, 148);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(84, 28);
-            this.label6.TabIndex = 10;
-            this.label6.Text = "Stock:";
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Cascadia Code SemiBold", 13.74545F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(60, 148);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(96, 28);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "Precio:";
             // 
-            // label7
+            // label3
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Cascadia Code SemiBold", 13.74545F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(357, 51);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(132, 28);
-            this.label7.TabIndex = 11;
-            this.label7.Text = "Categoria:";
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Cascadia Code SemiBold", 13.74545F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(60, 101);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(96, 28);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "Nombre:";
             // 
-            // comboBox1
+            // txtBuscar
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(495, 51);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(161, 32);
-            this.comboBox1.TabIndex = 12;
+            this.txtBuscar.Location = new System.Drawing.Point(152, 257);
+            this.txtBuscar.Name = "txtBuscar";
+            this.txtBuscar.Size = new System.Drawing.Size(110, 28);
+            this.txtBuscar.TabIndex = 6;
+            this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
             // 
-            // textBox1
+            // label2
             // 
-            this.textBox1.Location = new System.Drawing.Point(152, 55);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(134, 28);
-            this.textBox1.TabIndex = 13;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Cascadia Code SemiBold", 13.74545F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(57, 257);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(96, 28);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Buscar:";
             // 
-            // textBox2
+            // btnLimpiar
             // 
-            this.textBox2.Location = new System.Drawing.Point(152, 101);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(134, 28);
-            this.textBox2.TabIndex = 14;
+            this.btnLimpiar.Location = new System.Drawing.Point(545, 200);
+            this.btnLimpiar.Name = "btnLimpiar";
+            this.btnLimpiar.Size = new System.Drawing.Size(161, 40);
+            this.btnLimpiar.TabIndex = 4;
+            this.btnLimpiar.Text = "[ Limpiar ]";
+            this.btnLimpiar.UseVisualStyleBackColor = true;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
-            // textBox3
+            // btnEliminar
             // 
-            this.textBox3.Location = new System.Drawing.Point(152, 148);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(134, 28);
-            this.textBox3.TabIndex = 15;
+            this.btnEliminar.Location = new System.Drawing.Point(383, 200);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(156, 40);
+            this.btnEliminar.TabIndex = 3;
+            this.btnEliminar.Text = "[ Eliminar ]";
+            this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
-            // textBox4
+            // btnActualizar
             // 
-            this.textBox4.Location = new System.Drawing.Point(437, 148);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 28);
-            this.textBox4.TabIndex = 16;
+            this.btnActualizar.Location = new System.Drawing.Point(203, 200);
+            this.btnActualizar.Name = "btnActualizar";
+            this.btnActualizar.Size = new System.Drawing.Size(174, 40);
+            this.btnActualizar.TabIndex = 2;
+            this.btnActualizar.Text = "[ Actualizar ]";
+            this.btnActualizar.UseVisualStyleBackColor = true;
+            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
+            // 
+            // btnGuardar
+            // 
+            this.btnGuardar.Location = new System.Drawing.Point(40, 200);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(157, 40);
+            this.btnGuardar.TabIndex = 1;
+            this.btnGuardar.Text = "[ Guardar ]";
+            this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
+            // 
+            // dvgProductos
+            // 
+            this.dvgProductos.BackgroundColor = System.Drawing.Color.White;
+            this.dvgProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dvgProductos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Codigo,
+            this.Nombre,
+            this.Precio,
+            this.Categoria,
+            this.Stock});
+            this.dvgProductos.Location = new System.Drawing.Point(65, 313);
+            this.dvgProductos.Name = "dvgProductos";
+            this.dvgProductos.RowHeadersWidth = 47;
+            this.dvgProductos.Size = new System.Drawing.Size(624, 224);
+            this.dvgProductos.TabIndex = 0;
+            // 
+            // Codigo
+            // 
+            this.Codigo.HeaderText = "Codigo";
+            this.Codigo.MinimumWidth = 6;
+            this.Codigo.Name = "Codigo";
+            this.Codigo.ReadOnly = true;
+            this.Codigo.Width = 115;
+            // 
+            // Nombre
+            // 
+            this.Nombre.HeaderText = "Nombre";
+            this.Nombre.MinimumWidth = 6;
+            this.Nombre.Name = "Nombre";
+            this.Nombre.ReadOnly = true;
+            this.Nombre.Width = 115;
+            // 
+            // Precio
+            // 
+            this.Precio.HeaderText = "Precio";
+            this.Precio.MinimumWidth = 6;
+            this.Precio.Name = "Precio";
+            this.Precio.ReadOnly = true;
+            this.Precio.Width = 115;
+            // 
+            // Categoria
+            // 
+            this.Categoria.HeaderText = "Categoria";
+            this.Categoria.MinimumWidth = 6;
+            this.Categoria.Name = "Categoria";
+            this.Categoria.ReadOnly = true;
+            this.Categoria.Width = 115;
+            // 
+            // Stock
+            // 
+            this.Stock.HeaderText = "Stock";
+            this.Stock.MinimumWidth = 6;
+            this.Stock.Name = "Stock";
+            this.Stock.ReadOnly = true;
+            this.Stock.Width = 115;
             // 
             // FormProductos
             // 
@@ -269,20 +325,25 @@
         private System.Windows.Forms.GroupBox grpProducto;
         private System.Windows.Forms.DataGridView dvgProductos;
         private System.Windows.Forms.Button btnGuardar;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.Button btnActualizar;
+        private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtBuscar;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cboCategoria;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtStock;
+        private System.Windows.Forms.TextBox txtPrecio;
+        private System.Windows.Forms.TextBox txtNombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Codigo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Precio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Categoria;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Stock;
+        private System.Windows.Forms.TextBox txtCodigo;
     }
 }

@@ -130,5 +130,9 @@ namespace Sistema_De_Facturacion_Ventas.Formularios {
             Sesion.Cerrar();          // Limpia el usuario autenticado.
             Application.Exit();       // Cierra la aplicación completa.
         }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e) {
+
+        }
     }
 }

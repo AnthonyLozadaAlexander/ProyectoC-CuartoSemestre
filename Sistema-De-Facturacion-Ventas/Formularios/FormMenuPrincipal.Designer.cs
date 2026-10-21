@@ -65,42 +65,43 @@
             this.msSalir});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(822, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(822, 28);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
+            this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
             // 
             // msFacturacion
             // 
             this.msFacturacion.Name = "msFacturacion";
-            this.msFacturacion.Size = new System.Drawing.Size(81, 20);
+            this.msFacturacion.Size = new System.Drawing.Size(93, 23);
             this.msFacturacion.Text = "Facturación";
             this.msFacturacion.Click += new System.EventHandler(this.msFacturacion_Click);
             // 
             // msProductos
             // 
             this.msProductos.Name = "msProductos";
-            this.msProductos.Size = new System.Drawing.Size(72, 20);
+            this.msProductos.Size = new System.Drawing.Size(85, 23);
             this.msProductos.Text = "Inventario";
             this.msProductos.Click += new System.EventHandler(this.msProductos_Click);
             // 
             // msClientes
             // 
             this.msClientes.Name = "msClientes";
-            this.msClientes.Size = new System.Drawing.Size(61, 20);
+            this.msClientes.Size = new System.Drawing.Size(71, 23);
             this.msClientes.Text = "Clientes";
             this.msClientes.Click += new System.EventHandler(this.msClientes_Click);
             // 
             // msHistorial
             // 
             this.msHistorial.Name = "msHistorial";
-            this.msHistorial.Size = new System.Drawing.Size(63, 20);
+            this.msHistorial.Size = new System.Drawing.Size(73, 23);
             this.msHistorial.Text = "Historial";
             this.msHistorial.Click += new System.EventHandler(this.msHistorial_Click);
             // 
             // msSalir
             // 
             this.msSalir.Name = "msSalir";
-            this.msSalir.Size = new System.Drawing.Size(41, 20);
+            this.msSalir.Size = new System.Drawing.Size(48, 23);
             this.msSalir.Text = "Salir";
             this.msSalir.Click += new System.EventHandler(this.msSalir_Click);
             // 
@@ -110,7 +111,7 @@
             this.lblDashboard.Font = new System.Drawing.Font("Cascadia Code SemiBold", 13.74545F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDashboard.Location = new System.Drawing.Point(345, 60);
             this.lblDashboard.Name = "lblDashboard";
-            this.lblDashboard.Size = new System.Drawing.Size(111, 25);
+            this.lblDashboard.Size = new System.Drawing.Size(120, 28);
             this.lblDashboard.TabIndex = 1;
             this.lblDashboard.Text = "Dashboard";
             // 
@@ -145,7 +146,7 @@
             this.label1.Font = new System.Drawing.Font("Cascadia Code SemiBold", 13.74545F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(49, 14);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(111, 25);
+            this.label1.Size = new System.Drawing.Size(120, 28);
             this.label1.TabIndex = 5;
             this.label1.Text = "Productos";
             // 
@@ -180,7 +181,7 @@
             this.label2.Font = new System.Drawing.Font("Cascadia Code SemiBold", 13.74545F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(52, 14);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(100, 25);
+            this.label2.Size = new System.Drawing.Size(108, 28);
             this.label2.TabIndex = 6;
             this.label2.Text = "Clientes";
             // 
@@ -215,7 +216,7 @@
             this.label3.Font = new System.Drawing.Font("Cascadia Code SemiBold", 13.74545F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(25, 14);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(155, 25);
+            this.label3.Size = new System.Drawing.Size(168, 28);
             this.label3.TabIndex = 7;
             this.label3.Text = "Ventas De Hoy";
             // 
@@ -235,7 +236,7 @@
             this.label4.Font = new System.Drawing.Font("Cascadia Code SemiBold", 13.74545F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(50, 441);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(100, 25);
+            this.label4.Size = new System.Drawing.Size(108, 28);
             this.label4.TabIndex = 6;
             this.label4.Text = "Usuario:";
             // 
@@ -245,7 +246,7 @@
             this.label5.Font = new System.Drawing.Font("Cascadia Code SemiBold", 13.74545F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(288, 441);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(56, 25);
+            this.label5.Size = new System.Drawing.Size(60, 28);
             this.label5.TabIndex = 8;
             this.label5.Text = "Rol:";
             // 
@@ -265,7 +266,7 @@
             this.label6.Font = new System.Drawing.Font("Cascadia Code SemiBold", 13.74545F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(51, 500);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(78, 25);
+            this.label6.Size = new System.Drawing.Size(84, 28);
             this.label6.TabIndex = 9;
             this.label6.Text = "Fecha:";
             // 
@@ -306,7 +307,6 @@
             this.Name = "FormMenuPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sistema de Facturación y Ventas";
-            this.Load += new System.EventHandler(this.FormMenuPrincipal_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.pnlCardProductos.ResumeLayout(false);
