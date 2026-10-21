@@ -84,13 +84,12 @@
             this.lblError.AutoSize = true;
             this.lblError.Font = new System.Drawing.Font("Cascadia Code SemiBold", 13.74545F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblError.ForeColor = System.Drawing.Color.Red;
-            this.lblError.Location = new System.Drawing.Point(117, 312);
+            this.lblError.Location = new System.Drawing.Point(134, 313);
             this.lblError.Name = "lblError";
             this.lblError.Size = new System.Drawing.Size(216, 28);
             this.lblError.TabIndex = 5;
             this.lblError.Text = "MENSAJE DE ALERTA";
             this.lblError.Visible = false;
-            this.lblError.Click += new System.EventHandler(this.label4_Click);
             // 
             // btnIniciarSesion
             // 

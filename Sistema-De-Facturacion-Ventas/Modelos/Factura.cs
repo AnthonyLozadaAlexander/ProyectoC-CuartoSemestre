@@ -18,6 +18,7 @@ namespace Sistema_De_Facturacion_Ventas.Modelos {
 
         public Factura() { }
 
+        // Constructor que inicializa la factura con un número, un cliente y un porcentaje de IVA
         public Factura(string numeroFactura, Cliente cliente, decimal porcentajeIva) {
             NumeroFactura = numeroFactura;
             FechaEmision = DateTime.Now;
@@ -26,6 +27,7 @@ namespace Sistema_De_Facturacion_Ventas.Modelos {
             Estado = "Activa";
         }
 
+        // Agrega un detalle a la factura. Si el producto ya existe, se suma la cantidad.
         public void AgregarDetalle(DetalleFactura detalle) {
             if (detalle == null) throw new ArgumentNullException("detalle");
 
@@ -42,6 +44,7 @@ namespace Sistema_De_Facturacion_Ventas.Modelos {
             CalcularTotales();
         }
 
+        // Remueve un detalle de la factura por su IdDetalle
         public void RemoverDetalle(int idDetalle) {
             DetalleFactura detalle = Detalles.FirstOrDefault(d => d.IdDetalle == idDetalle);
             if (detalle != null) {
@@ -50,9 +53,15 @@ namespace Sistema_De_Facturacion_Ventas.Modelos {
             }
         }
 
+        // Calcula el subtotal, el valor del IVA y el total de la factura
         public void CalcularTotales() {
+            // Calcula el subtotal sumando los subtotales de cada detalle
             Subtotal = Detalles.Sum(d => d.SubtotalLinea);
+
+            // Calcula el valor del IVA aplicando el porcentaje al subtotal
             ValorIva = Math.Round(Subtotal * (PorcentajeIva / 100m), 2);
+
+            // Calcula el total sumando el subtotal y el valor del IVA
             Total = Subtotal + ValorIva;
         }
 
