@@ -32,11 +32,18 @@ namespace Sistema_De_Facturacion_Ventas.Formularios {
             cboEstado.SelectedIndex = 0;//
             cboEstado.DropDownStyle = ComboBoxStyle.DropDownList;
 
+
+            //se configuran las fechas por defecto
+            //tomamos la fecha de hoy y se le resta 1 mes, asi muestra por defecto ventas de ultimo mes y las de hoy
             dtpDesde.Value = DateTime.Today.AddMonths(-1);
             dtpHasta.Value = DateTime.Today;
 
+
+            //permiso de seguridad en el boton Anular
+            //si entra un cajero el boton naceria bloqueado
             btnAnular.Enabled = Sesion.EsAdministrador;
 
+            //se llama al metodo filtrar, para que de una vez aparezcan facturas en la tabla
             Filtrar();
 
         }
@@ -53,6 +60,7 @@ namespace Sistema_De_Facturacion_Ventas.Formularios {
             string estado = cboEstado.SelectedItem.ToString();
 
             //aplicamos LINQ se unen los 3 filtros la Fecha, el Texto y el Estado
+            //buscamos en el RepositorioDatos usamos LINQ el .Where
             facturas = RepositorioDatos.Facturas.Where(f =>
             f.FechaEmision >= desde && f.FechaEmision <= hasta &&
             (texto == ""
@@ -67,7 +75,7 @@ namespace Sistema_De_Facturacion_Ventas.Formularios {
             .OrderByDescending(f => f.FechaEmision).ToList();
 
 
-            //se limpia y se llena la grilla principal la maestra
+            //se limpia y se llena la tabla principal la maestra
             dgvFacturas.Rows.Clear();
             foreach (Factura f in facturas)
             {
@@ -80,7 +88,7 @@ namespace Sistema_De_Facturacion_Ventas.Formularios {
                     f.Total.ToString("N2"),
                     f.Estado);
 
-                //si esta anulada se la ponte gris
+                //si esta anulada se la pinta gris
                 if (f.Estado == "Anulada")
 
                     dgvFacturas.Rows[i].DefaultCellStyle.ForeColor = Color.Gray;
@@ -109,6 +117,8 @@ namespace Sistema_De_Facturacion_Ventas.Formularios {
 
         private void dgvFacturas_SelectionChanged (object sender, EventArgs e)
         {
+
+            
             dgvDetalle.Rows.Clear();
             Factura f = FacturaSeleccionada();
             if (f == null) return;
@@ -125,13 +135,14 @@ namespace Sistema_De_Facturacion_Ventas.Formularios {
 
         }
 
-            //el boton anular se activa unicamente si es administrador
+            //el boton anular se activa unicamente si es administrador y la factura anda activa
             btnAnular.Enabled = Sesion.EsAdministrador && f.Estado == "Activa";
     }
           
         
         private void btnAnular_Click(object sender, EventArgs e)
         {
+            //obtengo la factura seleccionada en la tabla
             Factura f = FacturaSeleccionada();
 
             if (f == null)
@@ -140,11 +151,12 @@ namespace Sistema_De_Facturacion_Ventas.Formularios {
                 return;
             }
 
-
+            //emite un mensaje de confirmacion SI o NO
             if (MessageBox.Show("Anular la factura? " + f.NumeroFactura + " ? Se le devuelve el stock",
                 "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes)
                 return;
-
+            
+            //se anula la factura y se actualiza pantalla
             try
             {
                 RepositorioDatos.AnularFactura(f.NumeroFactura);
@@ -163,20 +175,32 @@ namespace Sistema_De_Facturacion_Ventas.Formularios {
 
         private void btnExportar_Click(object sender, EventArgs e)
         {
+            //si la tabla esta vacia no habra nada que exportar
             if (facturas.Count == 0)
             {
-                MessageBox.Show("No hay facturas en la lista para exportar.");
+                MessageBox.Show("No hay facturas en la lista para exportar");
                 return;
             }
+
+            //---------------------------------con este codigo abrimos la ventana de GUARDAR COMO de Windows
             using (SaveFileDialog dlg = new SaveFileDialog())
+                //---------------------------------
             {
                 dlg.Filter = "CSV (*.csv)|*.csv";
                 dlg.FileName = "resumen_ventas.csv";
                 if (dlg.ShowDialog() != DialogResult.OK) return;
+
+                //se arma el texto del archivo y se guarda en el disco
                 try
                 {
+                    //Se arma el texto en memoria, 
                     StringBuilder sb = new StringBuilder();
+
+                    //va escribiendo un renglon nuevo
                     sb.AppendLine("Numero;Fecha;Cliente;Subtotal;IVA;Total;Estado");
+
+                    //recorre lista facturas y escribe una linea por cada factura
+                    // ; punto y coma separa datos, en columnas en excel
                     foreach (Factura f in facturas)
                     {
                         sb.AppendLine(
@@ -188,6 +212,9 @@ namespace Sistema_De_Facturacion_Ventas.Formularios {
                             f.Total.ToString("0.00") + ";" +
                             f.Estado);
                     }
+
+                    //aqui crea el archivo en la computadora
+                    //Enconding.UTF* las tildes y letras ñ se guarden, evitando simbolos
                     File.WriteAllText(dlg.FileName, sb.ToString(), Encoding.UTF8);
                     MessageBox.Show("Resumen exportado correctamente.", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
@@ -204,7 +231,7 @@ namespace Sistema_De_Facturacion_Ventas.Formularios {
         {
             if (dtpDesde.Value.Date > dtpHasta.Value.Date)
             {
-                MessageBox.Show("La fecha 'Desde' no puede ser mayor que la fecha 'Hasta'.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("La fecha 'Desde' no puede ser mayor que la fecha 'Hasta, ", "Error, revisa de nuevo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             Filtrar();
@@ -230,8 +257,9 @@ namespace Sistema_De_Facturacion_Ventas.Formularios {
 
         }
 
+        private void txtBuscar_TextChanged(object sender, EventArgs e)
+        {
 
-
-
+        }
     }
 }
