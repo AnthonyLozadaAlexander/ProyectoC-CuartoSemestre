@@ -18,6 +18,7 @@ namespace Sistema_De_Facturacion_Ventas.Formularios
         public FormFacturacion()
         {
             InitializeComponent();
+            nudCantidad.ReadOnly = true;
         }
 
        
@@ -189,6 +190,8 @@ namespace Sistema_De_Facturacion_Ventas.Formularios
             //instancia
             Producto p = cboProductos.SelectedItem as Producto;
 
+            
+
             if (p == null)
             {
                 MessageBox.Show("Seleccione un producto.", "Aviso",
@@ -204,7 +207,12 @@ namespace Sistema_De_Facturacion_Ventas.Formularios
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-
+            if (cantidad > p.Stock)
+            {
+                MessageBox.Show("La cantidad solicitada supera el stock disponible.", "Aviso",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
             int yaAgregado = CantidadEnFactura(p.Codigo);
             int totalSolicitado = yaAgregado + cantidad;
