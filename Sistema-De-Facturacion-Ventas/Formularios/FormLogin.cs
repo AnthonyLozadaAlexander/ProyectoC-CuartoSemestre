@@ -54,6 +54,7 @@ namespace Sistema_De_Facturacion_Ventas {
                 if (encontrado == null)
                 {
                     MostrarError("Usuario o contraseña incorrectos.");
+                    MessageBox.Show("Usuario o contraseña incorrectos.", "Error de inicio de sesión", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtPassword.Clear();
                     txtPassword.Focus();
                     return;
