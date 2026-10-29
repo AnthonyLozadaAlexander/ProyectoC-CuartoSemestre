@@ -65,42 +65,42 @@
             this.msSalir});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(983, 27);
+            this.menuStrip1.Size = new System.Drawing.Size(983, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // msFacturacion
             // 
             this.msFacturacion.Name = "msFacturacion";
-            this.msFacturacion.Size = new System.Drawing.Size(93, 23);
+            this.msFacturacion.Size = new System.Drawing.Size(81, 20);
             this.msFacturacion.Text = "Facturación";
             this.msFacturacion.Click += new System.EventHandler(this.msFacturacion_Click);
             // 
             // msProductos
             // 
             this.msProductos.Name = "msProductos";
-            this.msProductos.Size = new System.Drawing.Size(85, 23);
+            this.msProductos.Size = new System.Drawing.Size(72, 20);
             this.msProductos.Text = "Inventario";
             this.msProductos.Click += new System.EventHandler(this.msProductos_Click);
             // 
             // msClientes
             // 
             this.msClientes.Name = "msClientes";
-            this.msClientes.Size = new System.Drawing.Size(71, 23);
+            this.msClientes.Size = new System.Drawing.Size(61, 20);
             this.msClientes.Text = "Clientes";
             this.msClientes.Click += new System.EventHandler(this.msClientes_Click);
             // 
             // msHistorial
             // 
             this.msHistorial.Name = "msHistorial";
-            this.msHistorial.Size = new System.Drawing.Size(73, 23);
+            this.msHistorial.Size = new System.Drawing.Size(63, 20);
             this.msHistorial.Text = "Historial";
             this.msHistorial.Click += new System.EventHandler(this.msHistorial_Click);
             // 
             // msSalir
             // 
             this.msSalir.Name = "msSalir";
-            this.msSalir.Size = new System.Drawing.Size(48, 23);
+            this.msSalir.Size = new System.Drawing.Size(41, 20);
             this.msSalir.Text = "Salir";
             this.msSalir.Click += new System.EventHandler(this.msSalir_Click);
             // 
@@ -110,7 +110,7 @@
             this.lblDashboard.Font = new System.Drawing.Font("Cascadia Code SemiBold", 13.74545F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDashboard.Location = new System.Drawing.Point(410, 68);
             this.lblDashboard.Name = "lblDashboard";
-            this.lblDashboard.Size = new System.Drawing.Size(120, 28);
+            this.lblDashboard.Size = new System.Drawing.Size(111, 25);
             this.lblDashboard.TabIndex = 1;
             this.lblDashboard.Text = "Dashboard";
             this.lblDashboard.Click += new System.EventHandler(this.lblDashboard_Click);
@@ -146,7 +146,7 @@
             this.label1.Font = new System.Drawing.Font("Cascadia Code SemiBold", 13.74545F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(49, 14);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(120, 28);
+            this.label1.Size = new System.Drawing.Size(111, 25);
             this.label1.TabIndex = 5;
             this.label1.Text = "Productos";
             // 
@@ -181,7 +181,7 @@
             this.label2.Font = new System.Drawing.Font("Cascadia Code SemiBold", 13.74545F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(52, 14);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(108, 28);
+            this.label2.Size = new System.Drawing.Size(100, 25);
             this.label2.TabIndex = 6;
             this.label2.Text = "Clientes";
             // 
@@ -216,7 +216,7 @@
             this.label3.Font = new System.Drawing.Font("Cascadia Code SemiBold", 13.74545F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(25, 14);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(168, 28);
+            this.label3.Size = new System.Drawing.Size(155, 25);
             this.label3.TabIndex = 7;
             this.label3.Text = "Ventas De Hoy";
             // 
@@ -227,7 +227,7 @@
             this.txtUsuario.Multiline = true;
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.ReadOnly = true;
-            this.txtUsuario.Size = new System.Drawing.Size(158, 34);
+            this.txtUsuario.Size = new System.Drawing.Size(158, 59);
             this.txtUsuario.TabIndex = 5;
             this.txtUsuario.TabStop = false;
             // 
@@ -237,7 +237,7 @@
             this.lblUsuario.Font = new System.Drawing.Font("Cascadia Code SemiBold", 13.74545F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUsuario.Location = new System.Drawing.Point(46, 354);
             this.lblUsuario.Name = "lblUsuario";
-            this.lblUsuario.Size = new System.Drawing.Size(108, 28);
+            this.lblUsuario.Size = new System.Drawing.Size(100, 25);
             this.lblUsuario.TabIndex = 6;
             this.lblUsuario.Text = "Usuario:";
             // 
@@ -247,7 +247,7 @@
             this.lblRol.Font = new System.Drawing.Font("Cascadia Code SemiBold", 13.74545F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblRol.Location = new System.Drawing.Point(344, 354);
             this.lblRol.Name = "lblRol";
-            this.lblRol.Size = new System.Drawing.Size(60, 28);
+            this.lblRol.Size = new System.Drawing.Size(56, 25);
             this.lblRol.TabIndex = 8;
             this.lblRol.Text = "Rol:";
             // 
@@ -266,16 +266,16 @@
             // 
             this.lblFecha.AutoSize = true;
             this.lblFecha.Font = new System.Drawing.Font("Cascadia Code SemiBold", 13.74545F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFecha.Location = new System.Drawing.Point(70, 413);
+            this.lblFecha.Location = new System.Drawing.Point(70, 440);
             this.lblFecha.Name = "lblFecha";
-            this.lblFecha.Size = new System.Drawing.Size(84, 28);
+            this.lblFecha.Size = new System.Drawing.Size(78, 25);
             this.lblFecha.TabIndex = 9;
             this.lblFecha.Text = "Fecha:";
             // 
             // txtFecha
             // 
             this.txtFecha.Font = new System.Drawing.Font("Cascadia Code SemiBold", 11.78182F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFecha.Location = new System.Drawing.Point(171, 413);
+            this.txtFecha.Location = new System.Drawing.Point(171, 440);
             this.txtFecha.Multiline = true;
             this.txtFecha.Name = "txtFecha";
             this.txtFecha.ReadOnly = true;

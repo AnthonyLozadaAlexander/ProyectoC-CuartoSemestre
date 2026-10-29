@@ -20,21 +20,10 @@ namespace Sistema_De_Facturacion_Ventas.Formularios
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            this.Text = "Facturación";
-
-            // Datos del cliente: solo se llenan al buscar, no se escriben a mano.
-            textNombres.ReadOnly = true;
-            txtDireccion.ReadOnly = true;
-            txtTelefono.ReadOnly = true;
-
-            // Prepara la primera factura vacía y carga los productos.
-            IniciarNuevaFactura();
-        }
+       
         private void IniciarNuevaFactura()
         {
-            // Factura nueva: sin cliente todavía, IVA por defecto (15%).
+            
             facturaActual = new Factura(
                 RepositorioDatos.GenerarNumeroFactura(),
                 null,
@@ -43,7 +32,7 @@ namespace Sistema_De_Facturacion_Ventas.Formularios
             label2.Text = facturaActual.NumeroFactura;
             label4.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
 
-            textBox1.Clear();
+            txtCedula.Clear();
             textNombres.Clear();
             txtDireccion.Clear();
             txtTelefono.Clear();
@@ -54,7 +43,7 @@ namespace Sistema_De_Facturacion_Ventas.Formularios
         }
         private void CargarProductos()
         {
-            // Se cargan los objetos Producto reales del repositorio.
+            
             cboProductos.Items.Clear();
             foreach (Producto p in RepositorioDatos.Productos)
                 cboProductos.Items.Add(p);
@@ -64,7 +53,7 @@ namespace Sistema_De_Facturacion_Ventas.Formularios
             else
             {
                 lblPrecio.Text = "$ 0.00";
-                label12.Text = "0";
+                lbl_Stock.Text = "0";
                 nudCantidad.Enabled = false;
             }
         }
@@ -83,20 +72,20 @@ namespace Sistema_De_Facturacion_Ventas.Formularios
             if (p == null)
             {
                 lblPrecio.Text = "$ 0.00";
-                label12.Text = "0";
+                lbl_Stock.Text = "0";
                 nudCantidad.Enabled = false;
                 return;
             }
 
             lblPrecio.Text = "$ " + p.PrecioUnitario.ToString("0.00");
-            label12.Text = p.Stock.ToString();
+            lbl_Stock.Text = p.Stock.ToString();
 
-            // Lo máximo que se puede pedir es el stock menos lo ya agregado.
+            
             int disponible = p.Stock - CantidadEnFactura(p.Codigo);
 
             if (disponible <= 0)
             {
-                // NumericUpDown no admite máximo 0 porque su mínimo es 1.
+               
                 nudCantidad.Maximum = 1;
                 nudCantidad.Value = 1;
                 nudCantidad.Enabled = false;
@@ -128,7 +117,7 @@ namespace Sistema_De_Facturacion_Ventas.Formularios
 
         private void ActualizarTotales()
         {
-            // Recalcula Subtotal, IVA y Total desde la lista de detalles.
+            
             facturaActual.CalcularTotales();
 
             lblsubtotal2.Text = "$ " + facturaActual.Subtotal.ToString("0.00");
@@ -143,40 +132,17 @@ namespace Sistema_De_Facturacion_Ventas.Formularios
             ActualizarTotales();
             MostrarProductoSeleccionado();
         }
-        private void label3_Click(object sender, EventArgs e)
+        
+        private void button1_Click_1(object sender, EventArgs e)
         {
-
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtTelefono_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            string cedula = textBox1.Text.Trim();
+            //instancia bntBuscar
+            string cedula = txtCedula.Text.Trim();
 
             if (cedula == "")
             {
                 MessageBox.Show("Ingrese la cédula/RUC del cliente.", "Aviso",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                textBox1.Focus();
+                txtCedula.Focus();
                 return;
             }
 
@@ -198,50 +164,28 @@ namespace Sistema_De_Facturacion_Ventas.Formularios
             textNombres.Text = cliente.NombreCompleto;
             txtDireccion.Text = cliente.Direccion;
             txtTelefono.Text = cliente.Telefono;
-        }
-
-        private void lblPrecio_Click(object sender, EventArgs e)
-        {
 
         }
 
-        private void lblStock_Click(object sender, EventArgs e)
+        private void btnBuscarProducto_Click_1(object sender, EventArgs e)
         {
-
-        }
-
-        private void label12_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void nudCantidad_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            if (dgvDetalles.CurrentRow == null)
+            //instancia bntBuscarProducto
+            if (cboProductos.Items.Count == 0)
             {
-                MessageBox.Show("Seleccione el renglón que desea eliminar.", "Aviso",
+                MessageBox.Show("No hay productos registrados.", "Aviso",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            string codigo = Convert.ToString(dgvDetalles.CurrentRow.Cells[0].Value);
 
-            DetalleFactura detalle = facturaActual.Detalles
-                .FirstOrDefault(d => d.CodigoProducto == codigo);
-
-            if (detalle == null) return;
-
-            facturaActual.RemoverDetalle(detalle.IdDetalle);
-            Refrescar();
+            MostrarProductoSeleccionado();
+            cboProductos.Focus();
+            cboProductos.DroppedDown = true;
         }
 
-        private void btnAgregar_Click(object sender, EventArgs e)
+        private void btnAgregar_Click_1(object sender, EventArgs e)
         {
+            //instancia
             Producto p = cboProductos.SelectedItem as Producto;
 
             if (p == null)
@@ -260,11 +204,11 @@ namespace Sistema_De_Facturacion_Ventas.Formularios
                 return;
             }
 
-            // Cantidad que ya está en la factura para ese producto.
+
             int yaAgregado = CantidadEnFactura(p.Codigo);
             int totalSolicitado = yaAgregado + cantidad;
 
-            // REGLA: no se puede superar el stock real del producto.
+
             if (!p.ValidarStock(totalSolicitado))
             {
                 int disponible = p.Stock - yaAgregado;
@@ -279,8 +223,7 @@ namespace Sistema_De_Facturacion_Ventas.Formularios
                 return;
             }
 
-            // Factura.AgregarDetalle acumula la cantidad si el producto ya
-            // existe en la lista, en lugar de duplicar la fila.
+
             facturaActual.AgregarDetalle(new DetalleFactura(
                 0,
                 p.Codigo,
@@ -291,57 +234,30 @@ namespace Sistema_De_Facturacion_Ventas.Formularios
             Refrescar();
         }
 
-        private void textNombres_TextChanged(object sender, EventArgs e)
+        private void button2_Click_1(object sender, EventArgs e)
         {
-
-        }
-
-        private void txtDireccion_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtTelefono_TextChanged_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblTotalFinal_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblTotalIVA_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblsubtotal2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dgvDetalles_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void btnLimpiar_Click(object sender, EventArgs e)
-        {
-            if (facturaActual.Detalles.Count > 0)
+            //instancia btnEliminarReglon
+            if (dgvDetalles.CurrentRow == null)
             {
-                DialogResult respuesta = MessageBox.Show(
-                    "¿Desea descartar la factura en curso?",
-                    "Limpiar factura", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                if (respuesta != DialogResult.Yes) return;
+                MessageBox.Show("Seleccione el renglón que desea eliminar.", "Aviso",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
 
-            IniciarNuevaFactura();
+            string codigo = Convert.ToString(dgvDetalles.CurrentRow.Cells[0].Value);
+
+            DetalleFactura detalle = facturaActual.Detalles
+                .FirstOrDefault(d => d.CodigoProducto == codigo);
+
+            if (detalle == null) return;
+
+            facturaActual.RemoverDetalle(detalle.IdDetalle);
+            Refrescar();
         }
 
-        private void btnEmitir_Click(object sender, EventArgs e)
+        private void btnEmitir_Click_1(object sender, EventArgs e)
         {
+            //instancia
             if (facturaActual.Detalles.Count == 0)
             {
                 MessageBox.Show("La factura no tiene productos.", "Aviso",
@@ -349,17 +265,16 @@ namespace Sistema_De_Facturacion_Ventas.Formularios
                 return;
             }
 
-            // Si no se presionó "Buscar", se intenta resolver el cliente
-            // con la cédula/RUC escrita en la caja de texto.
+
             if (facturaActual.ClienteAsociado == null)
             {
-                Cliente cliente = RepositorioDatos.BuscarCliente(textBox1.Text.Trim());
+                Cliente cliente = RepositorioDatos.BuscarCliente(txtCedula.Text.Trim());
 
                 if (cliente == null)
                 {
                     MessageBox.Show("Debe buscar y seleccionar un cliente antes de emitir.",
                         "Cliente requerido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    textBox1.Focus();
+                    txtCedula.Focus();
                     return;
                 }
 
@@ -370,8 +285,7 @@ namespace Sistema_De_Facturacion_Ventas.Formularios
             {
                 facturaActual.FechaEmision = DateTime.Now;
 
-                // RegistrarFactura valida todo el stock, lo descuenta
-                // físicamente y guarda la Factura en el repositorio.
+
                 RepositorioDatos.RegistrarFactura(facturaActual);
 
                 string numero = facturaActual.NumeroFactura;
@@ -389,80 +303,95 @@ namespace Sistema_De_Facturacion_Ventas.Formularios
                 MessageBox.Show(ex.Message, "No se pudo emitir la factura",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-                // El stock pudo cambiar: se refresca la lista de productos.
+
                 CargarProductos();
                 Refrescar();
             }
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
 
         }
 
-        private void label6_Click_1(object sender, EventArgs e)
+        private void btnLimpiar_Click_1(object sender, EventArgs e)
         {
-
-        }
-
-        private void label7_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label8_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label13_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblIVA_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblTOTAL_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label11_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label9_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cboProductos_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            MostrarProductoSeleccionado();
-        }
-
-        private void label10_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnBuscarProducto_Click(object sender, EventArgs e)
-        {
-            if (cboProductos.Items.Count == 0)
+            //instancia
+            if (facturaActual.Detalles.Count > 0)
             {
-                MessageBox.Show("No hay productos registrados.", "Aviso",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
+                DialogResult respuesta = MessageBox.Show(
+                    "¿Desea descartar la factura en curso?",
+                    "Limpiar factura", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (respuesta != DialogResult.Yes) return;
             }
 
-            // Refresca los datos mostrados (precio, stock) del producto elegido.
+            IniciarNuevaFactura();
+        }
+
+        private void lblTotalFinal_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblsubtotal2_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblTotalIVA_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label12_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblPrecio_Click_1(object sender, EventArgs e)
+        {
+            //instancia
+        }
+
+        private void dgvDetalles_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            //instancia
+        }
+
+        private void cboProductos_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            //instancia
             MostrarProductoSeleccionado();
-            cboProductos.Focus();
-            cboProductos.DroppedDown = true;
+        }
+
+        private void label4_Click_1(object sender, EventArgs e)
+        {
+            //instancia
+        }
+
+        private void textNombres_TextChanged_1(object sender, EventArgs e)
+        {
+            //instancia
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtTelefono_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FormFacturacion_Load(object sender, EventArgs e)
+        {
+            this.Text = "Facturación";
+
+
+            textNombres.ReadOnly = true;
+            txtDireccion.ReadOnly = true;
+            txtTelefono.ReadOnly = true;
+
+
+            IniciarNuevaFactura();
         }
     }
 }
