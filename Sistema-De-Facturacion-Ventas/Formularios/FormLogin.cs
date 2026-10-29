@@ -75,5 +75,25 @@ namespace Sistema_De_Facturacion_Ventas {
             this.DialogResult = DialogResult.Cancel;
             this.Close();
         }
+
+        private void txtUsuario_TextChanged(object sender, EventArgs e) {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e) {
+
+        }
+
+        private void txtPassword_TextChanged(object sender, EventArgs e) {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e) {
+
+        }
+
+        private void lblError_Click(object sender, EventArgs e) {
+
+        }
     }
 }

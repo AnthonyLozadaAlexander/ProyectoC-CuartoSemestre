@@ -132,6 +132,14 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Images\Icons\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Images\Fondos\Dashboard Fondo%281%29.jpg" />
+    <Content Include="Images\Fondos\Dashboard Fondo.jpg" />
+    <Content Include="Images\Fondos\Pantalla de inicio para sistema de ventas%281%29.png" />
+    <Content Include="Images\Fondos\Pantalla de inicio para sistema de ventas.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
