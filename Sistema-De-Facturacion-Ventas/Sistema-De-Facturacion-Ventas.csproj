@@ -46,6 +46,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Datos\RepositorioDatos.cs" />
+    <Compile Include="Datos\Sesion.cs" />
     <Compile Include="Formularios\FormClientes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -82,10 +84,31 @@
     <Compile Include="Formularios\FormProductos.Designer.cs">
       <DependentUpon>FormProductos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Modelos\Categoria.cs" />
+    <Compile Include="Modelos\Cliente.cs" />
+    <Compile Include="Modelos\DetalleFactura.cs" />
+    <Compile Include="Modelos\Factura.cs" />
+    <Compile Include="Modelos\Producto.cs" />
+    <Compile Include="Modelos\Usuario.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Formularios\FormFacturacion.resx">
+      <DependentUpon>FormFacturacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FormHistorialFacturas.resx">
+      <DependentUpon>FormHistorialFacturas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FormClientes.resx">
+      <DependentUpon>FormClientes.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FormMenuPrincipal.resx">
+      <DependentUpon>FormMenuPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FormProductos.resx">
+      <DependentUpon>FormProductos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -110,8 +133,13 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Datos\" />
-    <Folder Include="Modelos\" />
+    <Folder Include="Images\Icons\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Images\Fondos\Dashboard Fondo%281%29.jpg" />
+    <Content Include="Images\Fondos\Dashboard Fondo.jpg" />
+    <Content Include="Images\Fondos\Pantalla de inicio para sistema de ventas%281%29.png" />
+    <Content Include="Images\Fondos\Pantalla de inicio para sistema de ventas.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
