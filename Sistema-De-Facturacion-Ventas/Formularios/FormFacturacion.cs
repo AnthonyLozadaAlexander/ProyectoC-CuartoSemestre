@@ -167,10 +167,14 @@ namespace Sistema_De_Facturacion_Ventas.Formularios
             txtDireccion.Text = cliente.Direccion;
             txtTelefono.Text = cliente.Telefono;
 
+            CargarProductos();
         }
 
         private void btnBuscarProducto_Click_1(object sender, EventArgs e)
         {
+            CargarProductos();
+            ActualizarTotales();
+
             //instancia bntBuscarProducto
             if (cboProductos.Items.Count == 0)
             {
