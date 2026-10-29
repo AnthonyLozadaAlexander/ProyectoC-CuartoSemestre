@@ -54,6 +54,7 @@ namespace Sistema_De_Facturacion_Ventas {
                 if (encontrado == null)
                 {
                     MostrarError("Usuario o contraseña incorrectos.");
+                    MessageBox.Show("Usuario o contraseña incorrectos.", "Error de inicio de sesión", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtPassword.Clear();
                     txtPassword.Focus();
                     return;
@@ -73,6 +74,26 @@ namespace Sistema_De_Facturacion_Ventas {
             Sesion.Cerrar();
             this.DialogResult = DialogResult.Cancel;
             this.Close();
+        }
+
+        private void txtUsuario_TextChanged(object sender, EventArgs e) {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e) {
+
+        }
+
+        private void txtPassword_TextChanged(object sender, EventArgs e) {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e) {
+
+        }
+
+        private void lblError_Click(object sender, EventArgs e) {
+
         }
     }
 }

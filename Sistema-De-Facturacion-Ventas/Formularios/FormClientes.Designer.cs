@@ -264,7 +264,6 @@
             this.label9.Size = new System.Drawing.Size(35, 13);
             this.label9.TabIndex = 19;
             this.label9.Text = "Email:";
-            this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
             // txtEmail
             // 
