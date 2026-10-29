@@ -261,5 +261,10 @@ namespace Sistema_De_Facturacion_Ventas.Formularios {
         {
 
         }
+
+        private void cboEstado_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
