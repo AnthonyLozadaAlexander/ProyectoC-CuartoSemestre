@@ -20,18 +20,7 @@ namespace Sistema_De_Facturacion_Ventas.Formularios
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            this.Text = "Facturación";
-
-            
-            textNombres.ReadOnly = true;
-            txtDireccion.ReadOnly = true;
-            txtTelefono.ReadOnly = true;
-
-           
-            IniciarNuevaFactura();
-        }
+       
         private void IniciarNuevaFactura()
         {
             
@@ -390,6 +379,19 @@ namespace Sistema_De_Facturacion_Ventas.Formularios
         private void txtTelefono_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void FormFacturacion_Load(object sender, EventArgs e)
+        {
+            this.Text = "Facturación";
+
+
+            textNombres.ReadOnly = true;
+            txtDireccion.ReadOnly = true;
+            txtTelefono.ReadOnly = true;
+
+
+            IniciarNuevaFactura();
         }
     }
 }
