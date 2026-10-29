@@ -9,6 +9,13 @@ namespace Sistema_De_Facturacion_Ventas.Formularios {
         public FormMenuPrincipal() {
             InitializeComponent();
             this.ControlBox = false; // Oculta los botones de minimizar, maximizar y cerrar.
+            lblDashboard.Visible = false;
+            lblUsuario.Visible = false;
+            lblFecha.Visible = false;
+            lblRol.Visible = false;
+            lblProductos.Visible = false;
+            lblClientes.Visible = false;
+            lblVentas.Visible = false;
         }        
 
         // Actualiza la fecha y hora cada vez que el Timer cumple un segundo.
@@ -152,6 +159,46 @@ namespace Sistema_De_Facturacion_Ventas.Formularios {
         }
 
         private void lblDashboard_Click(object sender, EventArgs e) {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e) {
+
+        }
+
+        private void txtVentas_TextChanged(object sender, EventArgs e) {
+
+        }
+
+        private void pnlCardVentas_Paint(object sender, PaintEventArgs e) {
+
+        }
+
+        private void txtFecha_TextChanged(object sender, EventArgs e) {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e) {
+
+        }
+
+        private void lblFecha_Click(object sender, EventArgs e) {
+
+        }
+
+        private void txtRol_TextChanged(object sender, EventArgs e) {
+
+        }
+
+        private void txtUsuario_TextChanged(object sender, EventArgs e) {
+
+        }
+
+        private void label1_Click_1(object sender, EventArgs e) {
+
+        }
+
+        private void label1_Click_2(object sender, EventArgs e) {
 
         }
     }
