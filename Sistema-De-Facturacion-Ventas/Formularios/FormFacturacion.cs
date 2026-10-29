@@ -109,6 +109,7 @@ namespace Sistema_De_Facturacion_Ventas.Formularios
                 dgvDetalles.Rows.Add(
                     d.CodigoProducto,
                     d.NombreProducto,
+                    
                     d.Cantidad,
                     d.PrecioUnitario.ToString("0.00"),
                     d.SubtotalLinea.ToString("0.00"));
