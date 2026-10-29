@@ -2,22 +2,25 @@
 using Sistema_De_Facturacion_Ventas.Modelos;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Sistema_De_Facturacion_Ventas.Formularios {
-    public partial class FormClientes : Form {
-        public FormClientes() {
+namespace Sistema_De_Facturacion_Ventas.Formularios
+{
+    public partial class FormClientes : Form
+    {
+
+        public FormClientes()
+        {
             InitializeComponent();
             CenterToScreen();
             configurarTabla();
             cargarClientesTabla();
         }
+
+        // ============ CONFIGURACIÓN Y CARGA DE LA TABLA ============
+
         private void configurarTabla()
         {
             dgvClientes.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
@@ -30,6 +33,7 @@ namespace Sistema_De_Facturacion_Ventas.Formularios {
             cargarClientes(RepositorioDatos.Clientes);
         }
 
+        // Carga en la tabla una lista (completa o filtrada por el buscador)
         private void cargarClientes(List<Cliente> clientes)
         {
             dgvClientes.Rows.Clear();
@@ -44,6 +48,79 @@ namespace Sistema_De_Facturacion_Ventas.Formularios {
             dgvClientes.Rows.Add(c.CedulaRuc, c.Nombres, c.Apellidos, c.Direccion, c.Telefono, c.Email);
         }
 
+        // ============ UTILIDADES DE VALIDACIÓN ============
+
+        // Verifica que el texto sea SOLO números ("12a45" falla, espacios fallan)
+        private bool esSoloDigitos(string texto)
+        {
+            return !String.IsNullOrEmpty(texto) && texto.All(char.IsDigit);
+        }
+
+        // Verifica que sean SOLO letras y espacios ("Carlos", "María José" pasan)
+        private bool esSoloLetras(string texto)
+        {
+            texto = texto.Trim();
+            return texto.Length > 0 && texto.All(c => char.IsLetter(c) || c == ' ');
+        }
+
+        // ============ VALIDACIÓN DE CÉDULA ECUATORIANA (Módulo 10) ============
+
+        // Calcula el dígito verificador que DEBERÍA tener la cédula
+        private int calcularDigitoVerificador(string primerosNueve)
+        {
+            int[] coeficientes = { 2, 1, 2, 1, 2, 1, 2, 1, 2 };
+            int suma = 0;
+
+            for (int i = 0; i < 9; i++)
+            {
+                int producto = coeficientes[i] * Int32.Parse(primerosNueve[i].ToString());
+                if (producto >= 10)
+                {
+                    // Regla oficial: sumar los dígitos del producto. Ej. 12 → 1 + 2 = 3
+                    producto = (producto / 10) + (producto % 10);
+                }
+                suma += producto;
+            }
+
+            int resultado = 10 - (suma % 10);
+            return resultado == 10 ? 0 : resultado;
+        }
+
+        private bool validarCedulaEcuatoriana(string cedula)
+        {
+            // 1) Pura numérica y 10 dígitos exactos
+            if (!esSoloDigitos(cedula) || cedula.Length != 10) return false;
+
+            // 2) Los primeros 2 dígitos = código de provincia (01 a 24)
+            if (!Int32.TryParse(cedula.Substring(0, 2), out int provincia) || provincia < 1 || provincia > 24) return false;
+
+            // 3) El tercer dígito debe ser 0-5 (personas naturales)
+            if (Int32.Parse(cedula[2].ToString()) > 5) return false;
+
+            // 4) El décimo dígito debe coincidir con el calculado por Módulo 10
+            return calcularDigitoVerificador(cedula.Substring(0, 9)) == Int32.Parse(cedula[9].ToString());
+        }
+
+        // ============ OTRAS VALIDACIONES ============
+
+        // Teléfono ecuatoriano: 10 dígitos que empiecen con "09"
+        private bool validarTelefonoEcuatoriano(string telefono)
+        {
+            return esSoloDigitos(telefono) && telefono.Length == 10 && telefono.StartsWith("09");
+        }
+
+        // Email con formato básico (opcional: vacío es válido)
+        private bool validarEmail(string email)
+        {
+            if (String.IsNullOrWhiteSpace(email)) return true;
+            return email.Contains("@") && email.Contains(".") &&
+                   !email.Contains(" ") &&
+                   !email.StartsWith("@") && !email.EndsWith("@") &&
+                   !email.StartsWith(".") && !email.EndsWith(".") &&
+                   email.IndexOf("@") == email.LastIndexOf("@");
+        }
+
+        // Campos obbligatorios
         private bool validarCampos(string cedula, string nombres, string apellidos)
         {
             return !String.IsNullOrWhiteSpace(cedula)
@@ -51,50 +128,122 @@ namespace Sistema_De_Facturacion_Ventas.Formularios {
                 && !String.IsNullOrWhiteSpace(apellidos);
         }
 
-        private bool validarEmail(string email)
-        {
-            if (String.IsNullOrWhiteSpace(email)) return true;
-            return email.Contains("@") && email.Contains(".");
-        }
+        // ============ DUPLICADOS ============
 
         private bool verificarDuplicadoCedula(string cedula)
         {
             return RepositorioDatos.Clientes.Any(c => c.CedulaRuc.Equals(cedula, StringComparison.OrdinalIgnoreCase));
         }
-        private void FormClientes_Load(object sender, EventArgs e)
-        {
 
+        private bool verificarDuplicadoTelefono(string telefono)
+        {
+            if (String.IsNullOrWhiteSpace(telefono)) return false;
+            return RepositorioDatos.Clientes.Any(c => c.Telefono.Equals(telefono, StringComparison.OrdinalIgnoreCase));
         }
 
-        private void label9_Click(object sender, EventArgs e) {
+        // ============ VALIDADOR CENTRAL ============
+        // Valida TODA la pantalla de una vez (la usan Registrar y Modificar)
+        // esRegistro = true  → registro nuevo (la cédula NO debe existir)
+        // esRegistro = false → modificación (la cédula SÍ debe existir y ser él mismo)
 
-        }
-
-        private void button1_Click(object sender, EventArgs e)
+        private bool validarFormulario(bool esRegistro)
         {
-            if (!validarCampos(txtCedula.Text, txtNombres.Text, txtApellidos.Text))
+            string cedula = txtCedula.Text.Trim();
+            string nombres = txtNombres.Text.Trim();
+            string apellidos = txtApellidos.Text.Trim();
+            string telefono = txtTelefono.Text.Trim();
+            string email = txtEmail.Text.Trim();
+
+            if (!validarCampos(cedula, nombres, apellidos))
             {
                 MessageBox.Show("Cédula, Nombres y Apellidos son obligatorios.", "Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                txtCedula.Focus();
+                return false;
             }
 
-            if (!validarEmail(txtEmail.Text))
+            if (!esSoloLetras(nombres) || !esSoloLetras(apellidos))
             {
-                MessageBox.Show("El email no tiene un formato válido.", "Error",
+                MessageBox.Show("Nombres y Apellidos solo pueden contener letras y espacios.", "Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                txtNombres.Focus();
+                return false;
             }
 
-            string cedula = txtCedula.Text.Trim();
-            if (verificarDuplicadoCedula(cedula))
+            if (!esSoloDigitos(cedula))
+            {
+                MessageBox.Show("La cédula/RUC solo puede contener números.", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtCedula.Focus();
+                return false;
+            }
+
+            if (cedula.Length != 10)
+            {
+                MessageBox.Show("La cédula debe tener exactamente 10 dígitos.", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtCedula.Focus();
+                return false;
+            }
+
+            if (!validarCedulaEcuatoriana(cedula))
+            {
+                MessageBox.Show("La cédula no es válida según el algoritmo ecuatoriano (Módulo 10).", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtCedula.Focus();
+                return false;
+            }
+
+            // En registro la cédula no debe existir; al modificar es natural que exista (es él mismo)
+            if (esRegistro && verificarDuplicadoCedula(cedula))
             {
                 MessageBox.Show("Ya existe un cliente con esa cédula/RUC.", "Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                txtCedula.Focus();
+                return false;
             }
 
-            Cliente nuevo = new Cliente(cedula, txtNombres.Text.Trim(), txtApellidos.Text.Trim(),
+            if (!validarTelefonoEcuatoriano(telefono))
+            {
+                MessageBox.Show("El teléfono debe tener 10 dígitos y comenzar con 09.", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtTelefono.Focus();
+                return false;
+            }
+
+            if (verificarDuplicadoTelefono(telefono))
+            {
+                // Permitir conservar el MISMO teléfono al modificar (es el dueño actual)
+                Cliente dueno = RepositorioDatos.Clientes.FirstOrDefault(c => c.Telefono == telefono);
+                bool esElMismo = !esRegistro && dueno != null && dueno.CedulaRuc == cedula;
+                if (!esElMismo)
+                {
+                    MessageBox.Show("Ese teléfono ya está registrado por otro cliente: " + dueno.NombreCompleto,
+                        "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtTelefono.Focus();
+                    return false;
+                }
+            }
+
+            if (!validarEmail(email))
+            {
+                MessageBox.Show("El email no tiene un formato válido.", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtEmail.Focus();
+                return false;
+            }
+
+            return true;
+        }
+
+        // ============ CRITERIOS ============
+
+        // CREATE
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (!validarFormulario(esRegistro: true)) return;
+
+            Cliente nuevo = new Cliente(txtCedula.Text.Trim(), txtNombres.Text.Trim(), txtApellidos.Text.Trim(),
                 txtDireccion.Text.Trim(), txtTelefono.Text.Trim(), txtEmail.Text.Trim());
             RepositorioDatos.Clientes.Add(nuevo);
 
@@ -104,6 +253,7 @@ namespace Sistema_De_Facturacion_Ventas.Formularios {
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
+        // UPDATE
         private void button2_Click(object sender, EventArgs e)
         {
             if (String.IsNullOrWhiteSpace(txtCedula.Text))
@@ -113,19 +263,7 @@ namespace Sistema_De_Facturacion_Ventas.Formularios {
                 return;
             }
 
-            if (!validarCampos(txtCedula.Text, txtNombres.Text, txtApellidos.Text))
-            {
-                MessageBox.Show("Cédula, Nombres y Apellidos son obligatorios.", "Error",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            if (!validarEmail(txtEmail.Text))
-            {
-                MessageBox.Show("El email no tiene un formato válido.", "Error",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
+            if (!validarFormulario(esRegistro: false)) return;
 
             Cliente cliente = RepositorioDatos.BuscarCliente(txtCedula.Text.Trim());
             if (cliente == null)
@@ -141,6 +279,7 @@ namespace Sistema_De_Facturacion_Ventas.Formularios {
 
             if (consulta == DialogResult.Yes)
             {
+                // La cédula NO se modifica (es la llave de búsqueda)
                 cliente.Nombres = txtNombres.Text.Trim();
                 cliente.Apellidos = txtApellidos.Text.Trim();
                 cliente.Direccion = txtDireccion.Text.Trim();
@@ -154,6 +293,7 @@ namespace Sistema_De_Facturacion_Ventas.Formularios {
             }
         }
 
+        // DELETE
         private void button3_Click(object sender, EventArgs e)
         {
             if (String.IsNullOrWhiteSpace(txtCedula.Text))
@@ -185,11 +325,13 @@ namespace Sistema_De_Facturacion_Ventas.Formularios {
             }
         }
 
+        // NUEVO (limpiar)
         private void button4_Click(object sender, EventArgs e)
         {
             limpiarCampos();
             txtCedula.Focus();
         }
+
         private void limpiarCampos()
         {
             txtCedula.Clear();
@@ -202,10 +344,11 @@ namespace Sistema_De_Facturacion_Ventas.Formularios {
             cargarClientesTabla();
         }
 
+        // ============ CLIC EN FILA (autollenar formulario) ============
 
         private void dgvClientes_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            // Ignorar clics en el encabezado o fuera de filas
+            // Ignorar clics en el encabezado de la tabla (RowIndex = -1)
             if (e.RowIndex < 0) return;
 
             DataGridViewRow fila = dgvClientes.Rows[e.RowIndex];
@@ -217,26 +360,11 @@ namespace Sistema_De_Facturacion_Ventas.Formularios {
             txtEmail.Text = fila.Cells[5].Value?.ToString();
         }
 
+        // ============ CAPA DE BÚSQUEDA ============
 
         private void txtBuscar_TextChanged(object sender, EventArgs e)
         {
             cargarClientes(listaVisibleEnTabla());
-        }
-
-        private List<Cliente> listaVisibleEnTabla()
-        {
-            string texto = txtBuscar.Text.Trim();
-
-            if (String.IsNullOrWhiteSpace(texto))
-            {
-                return RepositorioDatos.Clientes;
-            }
-
-            return RepositorioDatos.Clientes
-                .Where(c => c.CedulaRuc.IndexOf(texto, StringComparison.OrdinalIgnoreCase) >= 0
-                         || c.Nombres.IndexOf(texto, StringComparison.OrdinalIgnoreCase) >= 0
-                         || c.Apellidos.IndexOf(texto, StringComparison.OrdinalIgnoreCase) >= 0)
-                .ToList();
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -261,6 +389,29 @@ namespace Sistema_De_Facturacion_Ventas.Formularios {
             }
 
             cargarClientes(resultados);
+        }
+
+        private List<Cliente> listaVisibleEnTabla()
+        {
+            string texto = txtBuscar.Text.Trim();
+
+            if (String.IsNullOrWhiteSpace(texto))
+            {
+                return RepositorioDatos.Clientes;
+            }
+
+            return RepositorioDatos.Clientes
+                .Where(c => c.CedulaRuc.IndexOf(texto, StringComparison.OrdinalIgnoreCase) >= 0
+                         || c.Nombres.IndexOf(texto, StringComparison.OrdinalIgnoreCase) >= 0
+                         || c.Apellidos.IndexOf(texto, StringComparison.OrdinalIgnoreCase) >= 0)
+                .ToList();
+        }
+
+        // ============ EVENTO DE CARGA (generado por el diseñador) ============
+
+        private void FormClientes_Load(object sender, EventArgs e)
+        {
+            // La carga real se hace en el constructor
         }
     }
 }
