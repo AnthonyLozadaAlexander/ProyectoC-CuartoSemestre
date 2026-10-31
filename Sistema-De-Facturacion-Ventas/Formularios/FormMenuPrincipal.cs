@@ -9,6 +9,10 @@ namespace Sistema_De_Facturacion_Ventas.Formularios {
         public FormMenuPrincipal() {
             InitializeComponent();
             this.ControlBox = false; // Oculta los botones de minimizar, maximizar y cerrar.
+            ocultarLabels(); // Oculta los labels del dashboard hasta que se cargue el formulario.
+        }   
+        
+        private void ocultarLabels() {
             lblDashboard.Visible = false;
             lblUsuario.Visible = false;
             lblFecha.Visible = false;
@@ -16,7 +20,7 @@ namespace Sistema_De_Facturacion_Ventas.Formularios {
             lblProductos.Visible = false;
             lblClientes.Visible = false;
             lblVentas.Visible = false;
-        }        
+        }
 
         // Actualiza la fecha y hora cada vez que el Timer cumple un segundo.
         private void tmrReloj_Tick(object sender, EventArgs e) {
@@ -26,6 +30,8 @@ namespace Sistema_De_Facturacion_Ventas.Formularios {
         // PÚBLICO: los demás formularios lo llaman después de emitir o anular una factura.
         public void ActualizarDashboard() {
             if (this.IsDisposed) return;
+
+            ocultarLabels();
 
             txtProductos.Text = RepositorioDatos.Productos.Count.ToString();
             txtClientes.Text = RepositorioDatos.Clientes.Count.ToString();
@@ -87,16 +93,16 @@ namespace Sistema_De_Facturacion_Ventas.Formularios {
 
         // Muestra u oculta las tarjetas informativas del menú.
         private void MostrarDashboard(bool visible) {
-            lblDashboard.Visible = visible;
+            // lblDashboard.Visible = visible;
             pnlCardProductos.Visible = visible;
             pnlCardClientes.Visible = visible;
             pnlCardVentas.Visible = visible;
             txtUsuario.Visible = visible;
             txtRol.Visible = visible;
             txtFecha.Visible = visible;
-            lblUsuario.Visible = visible;
-            lblRol.Visible = visible;
-            lblFecha.Visible = visible;
+            //lblUsuario.Visible = visible;
+            //lblRol.Visible = visible;
+            //lblFecha.Visible = visible;
         }
 
         // ---------- Eventos del menú ----------
@@ -129,6 +135,7 @@ namespace Sistema_De_Facturacion_Ventas.Formularios {
         // Se ejecuta una sola vez, al abrir el menú después de un login correcto.
         private void FormMenuPrincipal_Load_1(object sender, EventArgs e) {
             // Protección por si alguien abre este formulario sin pasar por el login.
+            ocultarLabels(); // Oculta los labels del dashboard hasta que se cargue el formulario.
             if (Sesion.UsuarioActual == null) {
                 MessageBox.Show("No hay una sesión activa. Debe iniciar sesión primero.",
                     "Acceso denegado", MessageBoxButtons.OK, MessageBoxIcon.Warning);

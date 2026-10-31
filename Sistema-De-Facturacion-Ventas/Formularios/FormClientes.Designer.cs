@@ -269,7 +269,7 @@
             // 
             this.txtEmail.Location = new System.Drawing.Point(286, 99);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(100, 20);
+            this.txtEmail.Size = new System.Drawing.Size(197, 20);
             this.txtEmail.TabIndex = 20;
             // 
             // btnNuevo
