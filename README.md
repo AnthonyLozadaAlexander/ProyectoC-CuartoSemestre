@@ -480,7 +480,6 @@ git push -u origin feature/nombre-de-la-funcion
 | Branmers14 | [@Branmers14](https://github.com/Branmers14) |
 | josephvergara1012-wq | [@josephvergara1012-wq](https://github.com/josephvergara1012-wq) |
 
-**Docente:** [Nombre del docente]
 **Asignatura:** Programación Avanzada · Cuarto Semestre "C"
 **Institución:** Universidad Técnica de Machala
 
